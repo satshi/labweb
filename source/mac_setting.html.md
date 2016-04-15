@@ -9,33 +9,28 @@ pageid: mac_setting
 
 ### 日本語入力
 ことえりは使いにくいので [Google 日本語入力](http://www.google.co.jp/ime/)を導入する。
+
 ## TeX
 
 ### MacTeX
 
-- [MacTeX-2014(TeX Live 2014)](http://www.tug.org/mactex/)を、もらってきてそのままインストールする。この段階で結構使い物になる。
-- [Mac - TeX Wiki](http://oku.edu.mie-u.ac.jp/~okumura/texwiki/?Mac#t244993f)を参考にして設定をする。
-- 日本語でヒラギノフォントを埋め込む場合、次のようにしてリンクを貼り、埋め込みの設定をする。
+- [MacTeX-2015(TeX Live 2015)](http://www.tug.org/mactex/)を、もらってきてそのままインストールする。この段階で結構使い物になる。
+-  [MacTeX - TeX Wiki](https://texwiki.texjp.org/?MacTeX)を参考にして設定をする。
+- 日本語でヒラギノフォントを埋め込む場合、次のようにしてリンクを貼り、埋め込みの設定をする。El Capitan 用。
 
 ~~~
 
-sudo mkdir -p /usr/local/texlive/texmf-local/fonts/opentype/hiragino/
-cd /usr/local/texlive/texmf-local/fonts/opentype/hiragino/
-sudo ln -fs "/Library/Fonts/ヒラギノ明朝 Pro W3.otf" ./HiraMinPro-W3.otf
-sudo ln -fs "/Library/Fonts/ヒラギノ明朝 Pro W6.otf" ./HiraMinPro-W6.otf
-sudo ln -fs "/Library/Fonts/ヒラギノ丸ゴ Pro W4.otf" ./HiraMaruPro-W4.otf
-sudo ln -fs "/Library/Fonts/ヒラギノ角ゴ Pro W3.otf" ./HiraKakuPro-W3.otf
-sudo ln -fs "/Library/Fonts/ヒラギノ角ゴ Pro W6.otf" ./HiraKakuPro-W6.otf
-sudo ln -fs "/Library/Fonts/ヒラギノ角ゴ Std W8.otf" ./HiraKakuStd-W8.otf
+cd /usr/local/texlive/2015/texmf-dist/scripts/cjk-gs-integrate     
+sudo perl cjk-gs-integrate.pl --link-texmf --force
 sudo mktexlsr
-sudo updmap-sys --setoption kanjiEmbed hiragino
+sudo updmap-sys --setoption kanjiEmbed hiragino-elcapitan-pron
 ~~~
 
-一度やっておけばバージョンアップした時には、最後のupdmap-sysのところだけやればよい。
+一度やっておけばバージョンアップした時には、最後のupdmap-sysのところだけやればよいはず。
 
 ### TeXShopで日本語
 
-- アプリケーションフォルダの中のTeXフォルダの中のTeXShopを立ち上げる。古い場合は、アップデートする。ここで使ったのは、3.36.2
+- アプリケーションフォルダの中のTeXフォルダの中のTeXShopを立ち上げる。古い場合は、アップデートする。
 - メニューからTeXShop/環境設定を開く。
 - 「書類」タブの一番下、設定プロファイルで「pTeX(ptex2pdf)」を選ぶ。
 - あまり細かいことを気にしない場合は「タイプセット」タブの「デフォルトのスクリプト」を「Tex + DVI」にする。
