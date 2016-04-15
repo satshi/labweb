@@ -1,0 +1,19 @@
+!!!
+%html{:lang => "ja"}
+  = partial "modules/head"
+  %body
+    = partial "modules/navi"
+    .container
+      #banner.page-header
+        %h1
+          = current_article.title
+        %p
+          = current_article.date.strftime('%b %e')
+      .row
+        .col-md-7
+          = yield
+        .col-md-
+        .col-md-3
+          = partial "modules/blogside"
+      = partial "modules/footer"
+    = partial "modules/inputjs"

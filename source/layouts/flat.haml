@@ -1,0 +1,7 @@
+= wrap_layout :frame do
+  .container
+    #banner.page-header.jumbotron
+      %h1= current_page.data.title
+      %p.lead= current_page.data.lead
+    = yield
+    = partial "modules/footer"

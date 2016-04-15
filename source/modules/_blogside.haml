@@ -1,0 +1,20 @@
+%h2
+  最近の記事
+%ol
+  - blog.articles[0...10].each do |article|
+    %li
+      = link_to article.title, article
+      %span
+        = article.date.strftime('%b %e')
+%h3
+  タグ
+%ol
+  - blog.tags.each do |tag, articles|
+    %li
+      = link_to "#{tag} (#{articles.size})", tag_path(tag)
+%h3
+  年ごと
+%ol
+  - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+    %li
+      = link_to "#{year} (#{articles.size})", blog_year_path(year)

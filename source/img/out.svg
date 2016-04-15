@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100mm" height="60mm" viewBox="0 0 100 60" style="stroke:black;fill:black" stroke-width="0.5">
+<g font-family="Helvetic,Arial,sans" stroke-width="0.3" font-size="3.88" stroke="none" fill="#000000">
+  <g class="plotroot xscalable">
+    <g font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" font-size="3.18" stroke="none" class="guide ylabels" fill="#4C404B">
+      <text x="21.66" y="5.97" text-anchor="end" style="dominant-baseline:central">3×10<tspan style="dominant-baseline:inherit" dy="-1ex">3</tspan></text>
+      <text x="21.66" y="16.8" text-anchor="end" style="dominant-baseline:central">2×10<tspan style="dominant-baseline:inherit" dy="-1ex">3</tspan></text>
+      <text x="21.66" y="27.64" text-anchor="end" style="dominant-baseline:central">1×10<tspan style="dominant-baseline:inherit" dy="-1ex">3</tspan></text>
+      <text x="21.66" y="38.47" text-anchor="end" style="dominant-baseline:central">0</text>
+    </g>
+    <g font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" font-size="3.18" stroke="none" class="guide xlabels" fill="#4C404B">
+      <text x="75.89" y="44.74" text-anchor="middle">20</text>
+      <text x="41.77" y="44.74" text-anchor="middle">-20</text>
+      <text x="58.83" y="44.74" text-anchor="middle">0</text>
+      <text x="24.71" y="44.74" text-anchor="middle">-40</text>
+      <text x="92.95" y="44.74" text-anchor="middle">40</text>
+    </g>
+    <g font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" font-size="3.88" stroke="none" fill="#362A35">
+      <text x="58.83" y="53" text-anchor="middle">x</text>
+    </g>
+    <g>
+      <g clip-path="url(#clippath1)">
+        <g stroke="#F1F1F5" class="guide background" fill="#FAFAFA" opacity="1">
+          <path d="M22.66,5 L 95 5 95 39.44 22.66 39.44 z" />
+        </g>
+        <g stroke-width="0.2" stroke="#F0F0F3" class="guide ygridlines xfixed">
+          <path d="M22.66,81.79 L 95 81.79" />
+          <path d="M22.66,-26.52 L 95 -26.52" />
+          <path d="M22.66,16.8 L 95 16.8" />
+          <path d="M22.66,60.13 L 95 60.13" />
+          <path d="M22.66,70.96 L 95 70.96" />
+          <path d="M22.66,-37.35 L 95 -37.35" />
+          <path d="M22.66,38.47 L 95 38.47" />
+          <path d="M22.66,-15.69 L 95 -15.69" />
+          <path d="M22.66,27.64 L 95 27.64" />
+          <path d="M22.66,-4.86 L 95 -4.86" />
+          <path d="M22.66,5.97 L 95 5.97" />
+          <path d="M22.66,49.3 L 95 49.3" />
+        </g>
+        <g stroke-width="0.2" stroke="#F0F0F3" class="guide xgridlines yfixed">
+          <path d="M161.2,5 L 161.2 39.44" />
+          <path d="M75.89,5 L 75.89 39.44" />
+          <path d="M-9.42,5 L -9.42 39.44" />
+          <path d="M110.01,5 L 110.01 39.44" />
+          <path d="M24.71,5 L 24.71 39.44" />
+          <path d="M178.26,5 L 178.26 39.44" />
+          <path d="M127.08,5 L 127.08 39.44" />
+          <path d="M144.14,5 L 144.14 39.44" />
+          <path d="M92.95,5 L 92.95 39.44" />
+          <path d="M-43.54,5 L -43.54 39.44" />
+          <path d="M58.83,5 L 58.83 39.44" />
+          <path d="M41.77,5 L 41.77 39.44" />
+          <path d="M-26.48,5 L -26.48 39.44" />
+          <path d="M7.65,5 L 7.65 39.44" />
+          <path d="M-60.6,5 L -60.6 39.44" />
+        </g>
+      </g>
+      <g clip-path="url(#clippath2)">
+        <g class="plotpanel">
+          <g stroke="none" fill="#00BFFF" shape-rendering="crispEdges">
+            <g class="geometry" id="id49">
+              <path d="M83.95,38.47 L 85 38.47 85 38.31 83.95 38.31 z" />
+            </g>
+            <g class="geometry" id="id47">
+              <path d="M81.87,38.47 L 82.91 38.47 82.91 32.39 81.87 32.39 z" />
+            </g>
+            <g class="geometry" id="id45">
+              <path d="M79.78,38.47 L 80.82 38.47 80.82 24.92 79.78 24.92 z" />
+            </g>
+            <g class="geometry" id="id43">
+              <path d="M77.69,38.47 L 78.74 38.47 78.74 20.69 77.69 20.69 z" />
+            </g>
+            <g class="geometry" id="id41">
+              <path d="M75.6,38.47 L 76.65 38.47 76.65 18.14 75.6 18.14 z" />
+            </g>
+            <g class="geometry" id="id39">
+              <path d="M73.52,38.47 L 74.56 38.47 74.56 15.49 73.52 15.49 z" />
+            </g>
+            <g class="geometry" id="id37">
+              <path d="M71.43,38.47 L 72.47 38.47 72.47 13.8 71.43 13.8 z" />
+            </g>
+            <g class="geometry" id="id35">
+              <path d="M69.34,38.47 L 70.39 38.47 70.39 11.5 69.34 11.5 z" />
+            </g>
+            <g class="geometry" id="id33">
+              <path d="M67.26,38.47 L 68.3 38.47 68.3 10.16 67.26 10.16 z" />
+            </g>
+            <g class="geometry" id="id31">
+              <path d="M65.17,38.47 L 66.21 38.47 66.21 10.21 65.17 10.21 z" />
+            </g>
+            <g class="geometry" id="id29">
+              <path d="M63.08,38.47 L 64.13 38.47 64.13 9.22 63.08 9.22 z" />
+            </g>
+            <g class="geometry" id="id27">
+              <path d="M61,38.47 L 62.04 38.47 62.04 8.92 61 8.92 z" />
+            </g>
+            <g class="geometry" id="id25">
+              <path d="M58.91,38.47 L 59.95 38.47 59.95 8.91 58.91 8.91 z" />
+            </g>
+            <g class="geometry" id="id23">
+              <path d="M56.82,38.47 L 57.86 38.47 57.86 8.74 56.82 8.74 z" />
+            </g>
+            <g class="geometry" id="id21">
+              <path d="M54.73,38.47 L 55.78 38.47 55.78 9.12 54.73 9.12 z" />
+            </g>
+            <g class="geometry" id="id19">
+              <path d="M52.65,38.47 L 53.69 38.47 53.69 9.79 52.65 9.79 z" />
+            </g>
+            <g class="geometry" id="id17">
+              <path d="M50.56,38.47 L 51.6 38.47 51.6 10.36 50.56 10.36 z" />
+            </g>
+            <g class="geometry" id="id15">
+              <path d="M48.47,38.47 L 49.52 38.47 49.52 11.53 48.47 11.53 z" />
+            </g>
+            <g class="geometry" id="id13">
+              <path d="M46.39,38.47 L 47.43 38.47 47.43 13.22 46.39 13.22 z" />
+            </g>
+            <g class="geometry" id="id11">
+              <path d="M44.3,38.47 L 45.34 38.47 45.34 14.49 44.3 14.49 z" />
+            </g>
+            <g class="geometry" id="id9">
+              <path d="M42.21,38.47 L 43.26 38.47 43.26 15.84 42.21 15.84 z" />
+            </g>
+            <g class="geometry" id="id7">
+              <path d="M40.12,38.47 L 41.17 38.47 41.17 18.84 40.12 18.84 z" />
+            </g>
+            <g class="geometry" id="id5">
+              <path d="M38.04,38.47 L 39.08 38.47 39.08 22.06 38.04 22.06 z" />
+            </g>
+            <g class="geometry" id="id3">
+              <path d="M35.95,38.47 L 36.99 38.47 36.99 27.14 35.95 27.14 z" />
+            </g>
+            <g class="geometry" id="id1">
+              <path d="M33.86,38.47 L 34.91 38.47 34.91 36.38 33.86 36.38 z" />
+            </g>
+            <g class="geometry" id="id0">
+              <path d="M32.82,38.47 L 33.86 38.47 33.86 38.26 32.82 38.26 z" />
+            </g>
+            <g class="geometry" id="id2">
+              <path d="M34.91,38.47 L 35.95 38.47 35.95 31.08 34.91 31.08 z" />
+            </g>
+            <g class="geometry" id="id4">
+              <path d="M36.99,38.47 L 38.04 38.47 38.04 25.17 36.99 25.17 z" />
+            </g>
+            <g class="geometry" id="id6">
+              <path d="M39.08,38.47 L 40.12 38.47 40.12 20.89 39.08 20.89 z" />
+            </g>
+            <g class="geometry" id="id8">
+              <path d="M41.17,38.47 L 42.21 38.47 42.21 17.69 41.17 17.69 z" />
+            </g>
+            <g class="geometry" id="id10">
+              <path d="M43.26,38.47 L 44.3 38.47 44.3 15.53 43.26 15.53 z" />
+            </g>
+            <g class="geometry" id="id12">
+              <path d="M45.34,38.47 L 46.39 38.47 46.39 12.94 45.34 12.94 z" />
+            </g>
+            <g class="geometry" id="id14">
+              <path d="M47.43,38.47 L 48.47 38.47 48.47 11.95 47.43 11.95 z" />
+            </g>
+            <g class="geometry" id="id16">
+              <path d="M49.52,38.47 L 50.56 38.47 50.56 10.32 49.52 10.32 z" />
+            </g>
+            <g class="geometry" id="id18">
+              <path d="M51.6,38.47 L 52.65 38.47 52.65 9.77 51.6 9.77 z" />
+            </g>
+            <g class="geometry" id="id20">
+              <path d="M53.69,38.47 L 54.73 38.47 54.73 9.25 53.69 9.25 z" />
+            </g>
+            <g class="geometry" id="id22">
+              <path d="M55.78,38.47 L 56.82 38.47 56.82 8.57 55.78 8.57 z" />
+            </g>
+            <g class="geometry" id="id24">
+              <path d="M57.86,38.47 L 58.91 38.47 58.91 8.9 57.86 8.9 z" />
+            </g>
+            <g class="geometry" id="id26">
+              <path d="M59.95,38.47 L 61 38.47 61 8.7 59.95 8.7 z" />
+            </g>
+            <g class="geometry" id="id28">
+              <path d="M62.04,38.47 L 63.08 38.47 63.08 9.3 62.04 9.3 z" />
+            </g>
+            <g class="geometry" id="id30">
+              <path d="M64.13,38.47 L 65.17 38.47 65.17 9.52 64.13 9.52 z" />
+            </g>
+            <g class="geometry" id="id32">
+              <path d="M66.21,38.47 L 67.26 38.47 67.26 10.17 66.21 10.17 z" />
+            </g>
+            <g class="geometry" id="id34">
+              <path d="M68.3,38.47 L 69.34 38.47 69.34 11.81 68.3 11.81 z" />
+            </g>
+            <g class="geometry" id="id36">
+              <path d="M70.39,38.47 L 71.43 38.47 71.43 12.73 70.39 12.73 z" />
+            </g>
+            <g class="geometry" id="id38">
+              <path d="M72.47,38.47 L 73.52 38.47 73.52 14.8 72.47 14.8 z" />
+            </g>
+            <g class="geometry" id="id40">
+              <path d="M74.56,38.47 L 75.6 38.47 75.6 16.08 74.56 16.08 z" />
+            </g>
+            <g class="geometry" id="id42">
+              <path d="M76.65,38.47 L 77.69 38.47 77.69 19.23 76.65 19.23 z" />
+            </g>
+            <g class="geometry" id="id44">
+              <path d="M78.74,38.47 L 79.78 38.47 79.78 22.71 78.74 22.71 z" />
+            </g>
+            <g class="geometry" id="id46">
+              <path d="M80.82,38.47 L 81.87 38.47 81.87 27.92 80.82 27.92 z" />
+            </g>
+            <g class="geometry" id="id48">
+              <path d="M82.91,38.47 L 83.95 38.47 83.95 36.82 82.91 36.82 z" />
+            </g>
+          </g>
+        </g>
+      </g>
+      <g clip-path="url(#clippath3)">
+      </g>
+    </g>
+  </g>
+</g>
+<defs>
+<clipPath id="clippath1">
+  <path d="M22.66,5 L 95 5 95 39.44 22.66 39.44" />
+</clipPath
+><clipPath id="clippath2">
+  <path d="M22.66,5 L 95 5 95 39.44 22.66 39.44" />
+</clipPath
+><clipPath id="clippath3">
+  <path d="M22.66,5 L 95 5 95 39.44 22.66 39.44" />
+</clipPath
+></defs>
+</svg>
