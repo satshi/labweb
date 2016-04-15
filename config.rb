@@ -50,9 +50,20 @@ configure :build do
   # activate :asset_hash
 
   # Use relative URLs
-  #activate :relative_assets
+  activate :relative_assets
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
-  #set :relative_links, true
+  set :relative_links, true
+end
+
+activate :deploy do |deploy|
+  deploy.deploy_method   = :sftp
+  deploy.host     = 'kabuto.phys.sci.osaka-u.ac.jp'
+  deploy.port     = 22
+  deploy.path     = 'public_html/j'
+  # Optional Settings
+  deploy.user     = 'yamaguch' # no default
+  #deploy.password = 'secret' # no default
+  #deploy.build_before = true # default: false
 end
