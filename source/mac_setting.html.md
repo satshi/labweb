@@ -36,6 +36,59 @@ sudo updmap-sys --setoption kanjiEmbed hiragino-elcapitan-pron
 - あまり細かいことを気にしない場合は「タイプセット」タブの「デフォルトのスクリプト」を「Tex + DVI」にする。
 - ほとんど英語しか使わないし、英語ではpdflatexを使いたいという方は、デフォルトで「Pdftex」にしておく。この場合、日本語を使う時はメニューのタイプセット/Tex + DVIを選択する。
 
+### latexmk
+TeXで必要な回数texをかけてくれたり、必要ならbibtexなども自動的にやってくれるツール。設定は ~/.latexmkrc に書く。以下、日本語はuplatex、英語はlualatexで synctexを使用する設定ファイル。ビューワーはSkimを使用。
+
+```
+
+$latex = 'uplatex %O -synctex=1 %S';
+$pdflatex = 'pdflatex %O -synctex=1 %S';
+$lualatex = 'lualatex %O -synctex=1 %S';
+$biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
+$bibtex = 'upbibtex %O %B';
+$makeindex = 'upmendex %O -o %D %S';
+$dvipdf = 'dvipdfmx %O -o %D %S';
+$dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
+$ps2pdf = 'ps2pdf %O %S %D';
+$pdf_mode = 3;
+$pvc_view_file_via_temporary = 0;
+$pdf_previewer = 'open -ga /Applications/Skim.app';
+```
+
+### Atom + latextools + Skim
+AtomをTeX用のエディタとして使用する。
+
+- まず、パッケージ language-latex と latextools を導入する。
+- latextoolsの設定でBuilder Setting Programをlualatexに変更。
+- Skim は普通にインストールし、PDF-TeX同期サポートの初期値をAtomに設定する。
+
+これで英語だけなら使い物になるはず。
+
+- texファイルを読み込んで、cmd+option+b でタイプセット。タイプセットされ、エラーが無ければ、Skimが立ち上がる。
+- Atom のtexのソースの方でcmd+l j でpdfの該当箇所に飛ぶ。pdf の方で cmd+shift+クリックで対応するtex のソースの場所に飛ぶ。
+- latexの編集の補助は便利。詳しくはマニュアルを参照。
+- 日本語を使う場合も luatex-ja でやるならそのままできる。
+
+ptexを使う場合、次のようにすれば一応使える。
+
+- 上のlatexmkの設定をする。
+- latextools の２箇所を改造する。coffeescriptなので**インデントを変えない**ように注意。１箇所めは、
+``~/.atom/packages/latextools/lib/builder.coffee``
+の104行目
+``whitelist = ["pdflatex", "xelatex", "lualatex"]``
+を
+``whitelist = ["pdflatex", "xelatex", "lualatex","dvipdf"]``
+に変更する。リストの最後に``"dvipdf"``を追加した。
+- ２箇所め。
+``~/.atom/packages/latextools/lib/latextools.coffee``
+の152行目
+``enum: ["pdflatex", "xelatex", "lualatex"]``
+を
+``enum: ["pdflatex", "xelatex", "lualatex","dvipdf"]``
+に変更する。やはりリストの最後に``"dvipdf"``を追加した。
+- ptexを主に使うなら、atomを立ち上げなおし、latextoolsの設定のlatextoolsの設定でBuilder Setting Programをdvipdfに変更。
+- ptexはたまにしか使わないなら、設定のところのBuilder Setting Programはlualatexのままにしておき、ptexを使いたい文書のtexファイルの先頭に``% !TEX program = dvipdf``を入れる。
+
 ##エディタ
 
 ### CotEditor
