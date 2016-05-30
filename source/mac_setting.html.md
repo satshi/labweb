@@ -77,17 +77,17 @@ ptexを使う場合、次のようにすれば一応使える。
 の104行目
 ``whitelist = ["pdflatex", "xelatex", "lualatex"]``
 を
-``whitelist = ["pdflatex", "xelatex", "lualatex","dvipdf"]``
-に変更する。リストの最後に``"dvipdf"``を追加した。
+``whitelist = ["pdflatex", "xelatex", "lualatex","pdfdvi"]``
+に変更する。リストの最後に``"pdfdvi"``を追加した。
 - ２箇所め。
 ``~/.atom/packages/latextools/lib/latextools.coffee``
 の152行目
 ``enum: ["pdflatex", "xelatex", "lualatex"]``
 を
-``enum: ["pdflatex", "xelatex", "lualatex","dvipdf"]``
-に変更する。やはりリストの最後に``"dvipdf"``を追加した。
-- ptexを主に使うなら、atomを立ち上げなおし、latextoolsの設定のlatextoolsの設定でBuilder Setting Programをdvipdfに変更。
-- ptexはたまにしか使わないなら、設定のところのBuilder Setting Programはlualatexのままにしておき、ptexを使いたい文書のtexファイルの先頭に``% !TEX program = dvipdf``を入れる。
+``enum: ["pdflatex", "xelatex", "lualatex","pdfdvi"]``
+に変更する。やはりリストの最後に``"pdfdvi"``を追加した。
+- ptexを主に使うなら、atomを立ち上げなおし、latextoolsの設定のlatextoolsの設定でBuilder Setting Programをpdfdviに変更。
+- ptexはたまにしか使わないなら、設定のところのBuilder Setting Programはlualatexのままにしておき、ptexを使いたい文書のtexファイルの先頭に``% !TEX program = pdfdvi``を入れる。
 
 ##エディタ
 
