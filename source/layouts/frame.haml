@@ -2,6 +2,7 @@
 %html{:lang => "ja"}
   = partial "modules/head"
   %body
-    = partial "modules/navi"
+    %header
+      = partial "modules/navi"
     = yield
     = partial "modules/inputjs"
