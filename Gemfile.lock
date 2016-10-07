@@ -128,12 +128,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  middleman (>= 4.0.0)
+  middleman
   middleman-deploy (~> 2.0.0.pre.alpha)
   middleman-livereload
   redcarpet
   tzinfo-data
-  wdm (~> 0.1.0)
 
 BUNDLED WITH
-   1.11.2
+   1.12.5

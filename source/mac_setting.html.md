@@ -14,19 +14,19 @@ pageid: mac_setting
 
 ### MacTeX
 
-- [MacTeX-2015(TeX Live 2015)](http://www.tug.org/mactex/)を、もらってきてそのままインストールする。この段階で結構使い物になる。
+-  [MacTeX - TeX Users Group](https://tug.org/mactex/)を、もらってきてそのままインストールする。この段階で結構使い物になる。
 -  [MacTeX - TeX Wiki](https://texwiki.texjp.org/?MacTeX)を参考にして設定をする。
 - 日本語でヒラギノフォントを埋め込む場合、次のようにしてリンクを貼り、埋め込みの設定をする。El Capitan 用。
 
 ~~~
 
-cd /usr/local/texlive/2015/texmf-dist/scripts/cjk-gs-integrate     
+cd /usr/local/texlive/2016/texmf-dist/scripts/cjk-gs-integrate
 sudo perl cjk-gs-integrate.pl --link-texmf --force
 sudo mktexlsr
-sudo updmap-sys --setoption kanjiEmbed hiragino-elcapitan-pron
+sudo kanji-config-updmap-sys hiragino-elcapitan-pron
 ~~~
 
-一度やっておけばバージョンアップした時には、最後のupdmap-sysのところだけやればよいはず。
+一度やっておけばバージョンアップした時には、最後のkanji-config-updmap-sysのところだけやればよいはず。
 
 ### TeXShopで日本語
 
