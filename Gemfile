@@ -7,6 +7,7 @@ source 'https://rubygems.org'
 
 # Windows does not come with time zone data
 gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
+#gem 'json', git: 'https://github.com/flori/json', branch: 'v1.8'
 
 # Middleman Gems
 gem 'middleman'
