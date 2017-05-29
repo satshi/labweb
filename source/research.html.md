@@ -23,6 +23,7 @@ pageid: research
 - [AdS/CFT対応と泡状時空(最近の研究から)](http://ci.nii.ac.jp/naid/110004837341) 以前に物理学会誌に書いた記事です。今はオープンになっています。
 
 ### オリジナル研究の発表スライド
+- [共形場理論の手法による、余次元２のtwist defectの理論のε展開](pdf/defectCFT.pdf)
 - [AdS7/CFT6におけるWilson サーフェスとM5-brane (pdfファイル)](pdf/wilson_surface.pdf)
 
 ## 科研費
