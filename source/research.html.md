@@ -26,6 +26,9 @@ pageid: research
 - [共形場理論の手法による、余次元２のtwist defectの理論のε展開](pdf/defectCFT.pdf)
 - [AdS7/CFT6におけるWilson サーフェスとM5-brane (pdfファイル)](pdf/wilson_surface.pdf)
 
+### ちょっとしたノート
+- [ゼータ関数の解析接続](pdf/zeta.pdf) 弦理論やη不変量などで使われる、ゼータ関数の解析接続のちょっとしたまとめです。
+
 ## 科研費
 私の研究の一部は科研費のサポートを受けています。
  [KAKEN - 山口 哲(90570672)](https://kaken.nii.ac.jp/search/?qm=90570672)
