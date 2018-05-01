@@ -31,17 +31,6 @@ sudo tlmgr paper a4
 [Bibunsho7-patch/Patch.app](https://github.com/munepi/bibunsho7-patch/)を使う。
 「LaTeX2e美文書作成入門の付録DVD-ROM内のMac OS X用インストーラーから、…」と書いてあるが、
 [MacTeX - TeX Users Group](https://tug.org/mactex/)のものをインストールした場合にこのパッチをあててもうまくいっている。
-[TLContrib](https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=2366)を使う場合、
-~~~
-sudo tlmgr repository add http://contrib.texlive.info/current tlcontrib
-sudo tlmgr pinning add tlcontrib '*'
-sudo tlmgr install cjk-gs-integrate-macos
-sudo tlmgr install ptex-fontmaps-macos
-sudo cjk-gs-integrate --link-texmf --cleanup
-sudo cjk-gs-integrate-macos --link-texmf
-sudo kanji-config-updmap-sys hiragino-highsierra-pron
-~~~ 
-とすればよさそうだけれど、まだうまくいっていない。
 
 ### TeXShopで日本語
 
@@ -52,10 +41,9 @@ sudo kanji-config-updmap-sys hiragino-highsierra-pron
 - ほとんど英語しか使わないし、英語ではpdflatexを使いたいという方は、デフォルトで「Pdftex」にしておく。この場合、日本語を使う時はメニューのタイプセット/Tex + DVIを選択する。
 
 ### latexmk
-TeXで必要な回数texをかけてくれたり、必要ならbibtexなども自動的にやってくれるツール。設定は ~/.latexmkrc に書く。以下、日本語はuplatex、英語はlualatexで synctexを使用する設定ファイル。ビューワーはSkimを使用。
+TeXで必要な回数texをかけてくれたり、必要ならbibtexなども自動的にやってくれるツール。設定はデフォルトの設定 ~/.latexmkrc に書く。以下、日本語はuplatex、synctexを使用する設定ファイル。ビューワーはSkimを使用。
 
 ```
-
 $latex = 'uplatex %O -synctex=1 %S';
 $pdflatex = 'pdflatex %O -synctex=1 %S';
 $lualatex = 'lualatex %O -synctex=1 %S';
@@ -69,6 +57,8 @@ $pdf_mode = 3;
 $pvc_view_file_via_temporary = 0;
 $pdf_previewer = 'open -ga /Applications/Skim.app';
 ```
+
+プロジェクトごとに設定を変えることができる。プロジェクトのディレクトリ（普通texファイルが置いてあるディレクトリ）に`latexmk`というファイル（最初に.がついてないことに注意）を置くとその設定が優先される。
 
 ### Atom + latextools + Skim
 AtomをTeX用のエディタとして使用する。
