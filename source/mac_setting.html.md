@@ -15,18 +15,33 @@ pageid: mac_setting
 ### MacTeX
 
 -  [MacTeX - TeX Users Group](https://tug.org/mactex/)を、もらってきてそのままインストールする。この段階で結構使い物になる。
--  [MacTeX - TeX Wiki](https://texwiki.texjp.org/?MacTeX)を参考にして設定をする。
-- 日本語でヒラギノフォントを埋め込む場合、次のようにしてリンクを貼り、埋め込みの設定をする。El Capitan 用。
+-  [MacTeX - TeX Wiki](https://texwiki.texjp.org/?MacTeX)を参考にして設定をする。まずはアップデート。
 
 ~~~
-
-cd /usr/local/texlive/2016/texmf-dist/scripts/cjk-gs-integrate
-sudo perl cjk-gs-integrate.pl --link-texmf --force
-sudo mktexlsr
-sudo kanji-config-updmap-sys hiragino-elcapitan-pron
+sudo tlmgr update --self --all
 ~~~
 
-一度やっておけばバージョンアップした時には、最後のkanji-config-updmap-sysのところだけやればよいはず。
+紙のデフォルトをa4にする。
+
+~~~
+sudo tlmgr paper a4 
+~~~
+
+- 日本語でヒラギノフォントを埋め込む場合、
+[Bibunsho7-patch/Patch.app](https://github.com/munepi/bibunsho7-patch/)を使う。
+「LaTeX2e美文書作成入門の付録DVD-ROM内のMac OS X用インストーラーから、…」と書いてあるが、
+[MacTeX - TeX Users Group](https://tug.org/mactex/)のものをインストールした場合にこのパッチをあててもうまくいっている。
+[TLContrib](https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=2366)を使う場合、
+~~~
+sudo tlmgr repository add http://contrib.texlive.info/current tlcontrib
+sudo tlmgr pinning add tlcontrib '*'
+sudo tlmgr install cjk-gs-integrate-macos
+sudo tlmgr install ptex-fontmaps-macos
+sudo cjk-gs-integrate --link-texmf --cleanup
+sudo cjk-gs-integrate-macos --link-texmf
+sudo kanji-config-updmap-sys hiragino-highsierra-pron
+~~~ 
+とすればよさそうだけれど、まだうまくいっていない。
 
 ### TeXShopで日本語
 
