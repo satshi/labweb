@@ -71,6 +71,26 @@ $$
 
 それほど良くはないものの解析的に得られた結果を再現することができた。
 
+## 2018年5月1日追記
+時は流れ、juliaも進化しいろいろ便利になった。jupyter notebook とかを使って
+
+```julia
+using Plots
+gr()
+N=3000
+a=randn(N,N)
+h=Hermitian(a+a'+im*(a-a'))
+eigenvalues=eigvals!(h)/sqrt(4N)
+histogram(eigenvalues,bin=40, normed=true)
+plot!(x -> sqrt(4-x^2)/(2π), -2, 2, linewidth=2)
+```
+
+とやると（結構時間はかかるかもしれないが）以下のような半円の分布の絵が描ける。
+
+![半円](semi-circle.svg)
+
+ヒストグラムが、3000×3000の一個の行列をガウス分布で生成し、その固有値の分布をある正規化でヒストグラムを描いたもの。赤い線が理論的に計算される半円分布。非常によく合っていることが分かる。
+
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['$','$']]}});
 </script>
