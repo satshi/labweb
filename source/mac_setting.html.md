@@ -8,29 +8,27 @@ pageid: mac_setting
 ## 基本的なもの
 
 ### 日本語入力
+
 ことえりは使いにくいので [Google 日本語入力](http://www.google.co.jp/ime/)を導入する。
 
 ## TeX
 
 ### MacTeX
 
--  [MacTeX - TeX Users Group](https://tug.org/mactex/)を、もらってきてそのままインストールする。この段階で結構使い物になる。
--  [MacTeX - TeX Wiki](https://texwiki.texjp.org/?MacTeX)を参考にして設定をする。まずはアップデート。
+- [MacTeX - TeX Users Group](https://tug.org/mactex/)を、もらってきてそのままインストールする。この段階で結構使い物になる。
+- [MacTeX - TeX Wiki](https://texwiki.texjp.org/?MacTeX)を参考にして設定をする。まずはアップデート。
 
-~~~
+~~~ bash
 sudo tlmgr update --self --all
 ~~~
 
 紙のデフォルトをa4にする。
 
-~~~
-sudo tlmgr paper a4 
+~~~ bash
+sudo tlmgr paper a4
 ~~~
 
-- 日本語でヒラギノフォントを埋め込む場合、
-[Bibunsho7-patch/Patch.app](https://github.com/munepi/bibunsho7-patch/)を使う。
-「LaTeX2e美文書作成入門の付録DVD-ROM内のMac OS X用インストーラーから、…」と書いてあるが、
-[MacTeX - TeX Users Group](https://tug.org/mactex/)のものをインストールした場合にこのパッチをあててもうまくいっている。
+- 日本語でヒラギノフォントを埋め込む場合、[Bibunsho7-patch/Patch.app](https://github.com/munepi/bibunsho7-patch/)を使う。「LaTeX2e美文書作成入門の付録DVD-ROM内のMac OS X用インストーラーから、…」と書いてあるが、[MacTeX - TeX Users Group](https://tug.org/mactex/)のものをインストールした場合にこのパッチをあててもうまくいっている。
 
 ### TeXShopで日本語
 
@@ -41,9 +39,10 @@ sudo tlmgr paper a4
 - ほとんど英語しか使わないし、英語ではpdflatexを使いたいという方は、デフォルトで「Pdftex」にしておく。この場合、日本語を使う時はメニューのタイプセット/Tex + DVIを選択する。
 
 ### latexmk
+
 TeXで必要な回数texをかけてくれたり、必要ならbibtexなども自動的にやってくれるツール。設定はデフォルトの設定 ~/.latexmkrc に書く。以下、日本語はuplatex、synctexを使用する設定ファイル。ビューワーはSkimを使用。
 
-```
+``` perl
 $latex = 'uplatex %O -synctex=1 %S';
 $pdflatex = 'pdflatex %O -synctex=1 %S';
 $lualatex = 'lualatex %O -synctex=1 %S';
@@ -61,6 +60,9 @@ $pdf_previewer = 'open -ga /Applications/Skim.app';
 プロジェクトごとに設定を変えることができる。プロジェクトのディレクトリ（普通texファイルが置いてあるディレクトリ）に`latexmk`というファイル（最初に.がついてないことに注意）を置くとその設定が優先される。
 
 ### Atom + latextools + Skim
+
+（2018年5月追記：atom の latextools は開発が止まってしまっています。私はもう使っていませんが、念のため残しておきます。）
+
 AtomをTeX用のエディタとして使用する。
 
 - まず、パッケージ language-latex と latextools を導入する。
@@ -91,24 +93,101 @@ ptexを使う場合、次のようにすれば一応使える。
 を
 ``enum: ["pdflatex", "xelatex", "lualatex","pdfdvi"]``
 に変更する。やはりリストの最後に``"pdfdvi"``を追加した。
+
 - ptexを主に使うなら、atomを立ち上げなおし、latextoolsの設定のlatextoolsの設定でBuilder Setting Programをpdfdviに変更。
 - ptexはたまにしか使わないなら、設定のところのBuilder Setting Programはlualatexのままにしておき、ptexを使いたい文書のtexファイルの先頭に``% !TEX program = pdfdvi``を入れる。
 
-##エディタ
+### VSCode+latex-workshop
+
+開発速度が比較的速いので、すぐ情報が古くなることに注意。以下2018年5月現在の情報。
+
+まず、VSCodeを[Visual Studio Code - Code Editing. Redefined](https://code.visualstudio.com/)からもらってきてインストールする。
+
+そしてパッケージlatex-workshopをインストールする。やり方は、次のとおり。
+
+- VSCode を立ち上げ、左端に並んでいるボタンのうち一番下のもの（拡張機能の管理）を押す。
+- そこでlatex-workshopを検索して「インストール」のところを押す。
+- そして「最読み込み」のところを押す。
+
+これで英語のlatexファイルなら使えるようになっているはず。cmd+shift+Pでコマンドパレットが開くので、latexと打つと、それ関係のコマンドが出てくる。ショートカットも表示されるので、よく使いそうなものは覚える。
+
+スペルチェックがあると便利。私はSpell Rightというパッケージのを使っている。
+
+日本語を編集するためには超えなければならない問題がある。一つは日本語変換で何かやっているときに間違ってコントロールキャラクターが入ってしまうことがあり、コンパイルのときにエラーが出る。これはVSCodeの（というかelectronの、あるいはChromiumの）バグで2018年5月現在直っていない。対処方法は次のようにコントロールキャラクターを表示する設定にすること。
+
+- cmd+,で設定タブを開く。
+- controlとかで検索して「既定のユーザー設定」の方の"editor.renderControlCharacters": false,という行を見つける。
+- その行の先頭のへんにマウスカーソルを持っていくと鉛筆みたいな印が出るので、そこを押す。
+- falseとtrueが出るのでtrueを押す。
+- 右のユーザー設定の方にtrueになった設定がコピーされるので、それを保存する。
+
+日本語をあつかうときにもう一つやらないといけないのは、texをコンパイルするときの設定。
+
+- cmd+,で設定タブを開く。
+- 検索して「既定のユーザー設定」の方の"latex-workshop.latex.recipes":…という行を見つける。
+- その行の先頭のへんにマウスカーソルを持っていくと鉛筆みたいな印が出るので、そこを押す。
+- 「設定にコピー」を押してユーザー設定の方にコピーする。
+- 次のように書き換えて保存する。基本的にlatexmkのargsの中の"-pdf",という行を消しただけ。
+
+```json
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": [
+        "%DOCFILE%"
+      ]
+    }
+  ],
+```
+
+- latexmkの設定をする。上を参照。
+
+これで日本語のtexファイルがコンパイルできるようになっているはず。
+
+## エディタ
 
 ### CotEditor
+
 - [CotEditor -Text Editor for OS X](http://coteditor.github.io/)からもらってくる。普段使いに便利なエディタ。
 
 ### Atom
+
 - [Atom](https://atom.io/)からもらってくる。高機能なエディタ。重い。
 
-##Homebrew
+### Visual Studio Code
+
+- [Visual Studio Code - Code Editing. Redefined](https://code.visualstudio.com/)からもらってくる。高機能なエディタ。最近はAtomより、こちらを使っている。
+
+## Homebrew
+
 パッケージマネージャーと呼ばれるソフト。いろんなものをインストールしたりアンインストールしたりする。まず、XCode（無料だけどでかい）をApp Storeからインストールしておくことが必要。
  [Homebrew — The missing package manager for OS X](http://brew.sh/)にいって、Homebrewを導入。
 
 ## お絵かき
 
 ### Inkscape
+
 ドロー系のお絵かきソフトで論文などに入れる図を書くのに使う。Windowsの時は使いやすかったのだが、Macとは相性がそれほどよくないよう。
 
 まず、今のところXが必要なので導入する。 [XQuartz](http://xquartz.macosforge.org/landing/)に行ってバイナリーをもらってくる。
@@ -121,14 +200,16 @@ ptexを使う場合、次のようにすれば一応使える。
 - 数式を貼りたい。試した限りではLatexitからコピペは難しい。デフォルトで数式を扱うプラグインが入っているのでそれを使う。homebrewでpstoeditをインストールする。Inkscapeを再起動するとメニューのエクステンション＞レンダリング＞Latex数式を選ぶとダイアログが出てきてtexの書式で数式が書ける。何かエラーが出ているが、とりあえず書けるようにはなった。
 - メニューなどのフォントがイマイチ。
 
-###Gimp
+### Gimp
+
 こちらはペイントと画像処理のソフト。あまり使わないが時々必要なのインストールする。 [GIMP - The GNU Image Manipulation Program](http://www.gimp.org/)からもらってきて入れるだけ。
 
 ## FirefoxとThunderbird
 
 普通にインストールして、Windowsから設定を持ってくるとそのまま使えた。
 
-##小物
+## 小物
 
-###文字コード変換
+### 文字コード変換
+
 日本語のファイルの文字コードはすべてutf-8に統一しておくのが便利。 [MultiTextConverter](http://www.rk-k.com/software/mtc) を使っている。環境設定でsjisの機種依存文字のところをWindowsにする。でないと\を￥にされてしまう。あと、拡張子にtex, styを追加する。あとはフォルダーごとドラッグ・アンド・ドロップで変換してくれる。
