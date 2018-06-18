@@ -79,20 +79,9 @@ AtomをTeX用のエディタとして使用する。
 ptexを使う場合、次のようにすれば一応使える。
 
 - 上のlatexmkの設定をする。
-- latextools の２箇所を改造する。coffeescriptなので**インデントを変えない**ように注意。１箇所めは、
-``~/.atom/packages/latextools/lib/builder.coffee``
-の104行目
-``whitelist = ["pdflatex", "xelatex", "lualatex"]``
-を
-``whitelist = ["pdflatex", "xelatex", "lualatex","pdfdvi"]``
-に変更する。リストの最後に``"pdfdvi"``を追加した。
-- ２箇所め。
-``~/.atom/packages/latextools/lib/latextools.coffee``
-の152行目
-``enum: ["pdflatex", "xelatex", "lualatex"]``
-を
-``enum: ["pdflatex", "xelatex", "lualatex","pdfdvi"]``
-に変更する。やはりリストの最後に``"pdfdvi"``を追加した。
+- latextools の２箇所を改造する。coffeescriptなので**インデントを変えない**ように注意。
+  - １箇所めは、``~/.atom/packages/latextools/lib/builder.coffee``の104行目``whitelist = ["pdflatex", "xelatex", "lualatex"]``を``whitelist = ["pdflatex", "xelatex", "lualatex","pdfdvi"]``に変更する。リストの最後に``"pdfdvi"``を追加した。
+  - ２箇所め。``~/.atom/packages/latextools/lib/latextools.coffee``の152行目``enum: ["pdflatex", "xelatex", "lualatex"]``を``enum: ["pdflatex", "xelatex", "lualatex","pdfdvi"]``に変更する。やはりリストの最後に``"pdfdvi"``を追加した。
 
 - ptexを主に使うなら、atomを立ち上げなおし、latextoolsの設定のlatextoolsの設定でBuilder Setting Programをpdfdviに変更。
 - ptexはたまにしか使わないなら、設定のところのBuilder Setting Programはlualatexのままにしておき、ptexを使いたい文書のtexファイルの先頭に``% !TEX program = pdfdvi``を入れる。
@@ -107,7 +96,7 @@ ptexを使う場合、次のようにすれば一応使える。
 
 - VSCode を立ち上げ、左端に並んでいるボタンのうち一番下のもの（拡張機能の管理）を押す。
 - そこでlatex-workshopを検索して「インストール」のところを押す。
-- そして「最読み込み」のところを押す。
+- そして「再読み込み」のところを押す。
 
 これで英語のlatexファイルなら使えるようになっているはず。cmd+shift+Pでコマンドパレットが開くので、latexと打つと、それ関係のコマンドが出てくる。ショートカットも表示されるので、よく使いそうなものは覚える。
 
