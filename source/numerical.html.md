@@ -77,6 +77,7 @@ $$
 ```julia
 using Plots
 gr()
+using LinearAlgebra #v1.0から必要
 N=3000
 a=randn(N,N)
 h=Hermitian(a+a'+im*(a-a'))
