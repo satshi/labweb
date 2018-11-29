@@ -12,7 +12,7 @@ pageid: research
 ## 発表論文リスト
 
 - [発表論文リスト(inspire)](http://inspirehep.net/search?ln=ja&p=FIND+EA+YAMAGUCHI%2C+SATOSHI+OR+EPRINT+HEP-TH%2F9902079&f=&action_search=)
-- [発表論文リスト(arXiv)](http://arxiv.org/find/hep-th/1/au:+Yamaguchi_Satoshi/0/1/0/all/0/1)
+- [発表論文リスト(arXiv)](https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=Yamaguchi%2C+Satoshi&terms-0-field=author&classification-physics_archives=all&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=50&order=-announced_date_first)
 
 ## ノートやスライドのファイル
 
