@@ -1,10 +1,10 @@
 - pageList={"index" => "ホーム", "class" => "授業", "research"=>"研究"}
 - otherPageList={"mac_setting" => "mac設定の記録", "numerical" => "数値計算やってみました", "git" => "バージョン管理ツールを使おう","yen" => "単位を「円」にしてみた"}
 
-%nav.navbar.nav-pills.bg-light.navbar-expand-md
+%nav.navbar.navbar-light.bg-light.navbar-expand-lg
   .container
-    %a.navbar-brand{:href => "./index.html"} SY's Web Page
-    %button.navbar-toggler{"data-target" => "#navbar-main", "data-toggle" => "collapse", :type => "button", "aria-controls"=>"navbar-header", "aria-expanded"=>"false"}
+    %a.navbar-brand{:href => "./index.html", :style => "color: #f00"} SY's Web Page
+    %button.navbar-toggler{"data-target" => "#navbar-main", "data-toggle" => "collapse", :type => "button", "aria-controls"=>"navbar-main", "aria-expanded"=>"false", "aria-label"=>"Toggle navigation"}
       %span.navbar-toggler-icon
     #navbar-main.navbar-collapse.collapse
       %ul.navbar-nav.mr-auto
