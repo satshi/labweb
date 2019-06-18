@@ -1,23 +1,21 @@
 - pageList={"index" => "ホーム", "class" => "授業", "research"=>"研究"}
 - otherPageList={"mac_setting" => "mac設定の記録", "numerical" => "数値計算やってみました", "git" => "バージョン管理ツールを使おう","yen" => "単位を「円」にしてみた"}
 
-.navbar.navbar-default.navbar-fixed-top
+%nav.navbar.nav-pills.bg-light.navbar-expand-md
   .container
-    .navbar-header
-      %a.navbar-brand{:href => "./index.html"} SY's Web Page
-      %button.navbar-toggle{"data-target" => "#navbar-main", "data-toggle" => "collapse", :type => "button"}
-        - 3.times do
-          %span.icon-bar
+    %a.navbar-brand{:href => "./index.html"} SY's Web Page
+    %button.navbar-toggler{"data-target" => "#navbar-main", "data-toggle" => "collapse", :type => "button", "aria-controls"=>"navbar-header", "aria-expanded"=>"false"}
+      %span.navbar-toggler-icon
     #navbar-main.navbar-collapse.collapse
-      %ul.nav.navbar-nav
+      %ul.navbar-nav.mr-auto
         - pageList.each do |key, value|
-          %li{:class => (current_page.data.pageid == key) && 'active'}
-            = link_to value, "/"+key+".html"
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          %li.nav-item{:class => (current_page.data.pageid == key) && 'active'}
+            %a.nav-link{:href => "/"+key+".html"}
+              = value
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{:id => "dropdown01", "data-toggle" => "dropdown", :href => "#","aria-haspopup" => "true", "aria-expanded" => "false"}
             その他
-            %span.caret
-          %ul.dropdown-menu{:role => "menu"}
+          .dropdown-menu
             - otherPageList.each do |key, value|
-              %li{:class => (current_page.data.pageid == key) && 'active'}
-                = link_to value, "/"+key+".html"
+              %a.dropdown-item{:href => ("/"+key+".html"), :class => (current_page.data.pageid == key) && 'active'}
+                = value
