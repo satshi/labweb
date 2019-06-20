@@ -10,12 +10,10 @@
       %ul.navbar-nav.mr-auto
         - pageList.each do |key, value|
           %li.nav-item{:class => (current_page.data.pageid == key) && 'active'}
-            %a.nav-link{:href => "/"+key+".html"}
-              = value
+            = link_to value, "/"+key+".html", :class => "nav-link"
         %li.nav-item.dropdown
-          %a.nav-link.dropdown-toggle{:id => "dropdown01", "data-toggle" => "dropdown", :href => "#","aria-haspopup" => "true", "aria-expanded" => "false"}
+          %a.nav-link.dropdown-toggle{"data-toggle" => "dropdown", :href => "#","aria-haspopup" => "true", "aria-expanded" => "false"}
             その他
           .dropdown-menu
             - otherPageList.each do |key, value|
-              %a.dropdown-item{:href => ("/"+key+".html"), :class => (current_page.data.pageid == key) && 'active'}
-                = value
+              = link_to value, "/"+key+".html", :class => "dropdown-item #{'active' if current_page.data.pageid == key}"
