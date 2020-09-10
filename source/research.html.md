@@ -24,10 +24,14 @@ pageid: research
 
 ### 解説記事など
 
-- [AdS/CFT対応と泡状時空(最近の研究から)](http://ci.nii.ac.jp/naid/110004837341) 以前に物理学会誌に書いた記事です。今はオープンになっています。
+- [AdS/CFT対応と泡状時空(最近の研究から)](http://ci.nii.ac.jp/naid/110004837341) 以前に物理学会誌に書いた記事です。
+ <s>今はオープンになっています。</s>
+ 見れなくなっているようです。
 
-### オリジナル研究の発表スライド
+### オリジナル研究の発表スライドなど
 
+- [フェルミオンの経路積分とAtiyah-Patodi-Singer指数](pdf/fermionpathintegral.pdf) Summer School 数理物理2020で講演したときの手書きノートです。
+- [フェルミオンの経路積分とAtiyah-Patodi-Singer指数](pdf/anomalynote.pdf) 上のものの予稿です。
 - ['t Hooft anomaly matching condition and Chiral symmetry breaking withoutfermion bilinear condensate](pdf/chisb.pdf)
 - [Atiyah-Patodi-Singer index from the Domain-Wall Dirac Operator](pdf/aps.pdf)
 - [混合大域アノマリーと境界状態](pdf/global-anomaly.pdf)
