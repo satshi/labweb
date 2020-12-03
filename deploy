@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rsync -auvzP build/ yamaguch@kabuto.phys.sci.osaka-u.ac.jp:/home/yamaguch/public_html/j/
