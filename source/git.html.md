@@ -21,7 +21,9 @@ pageid: git
 
 代表的なバージョン管理ツールに[Git](http://git-scm.com/)と[Mercurial](http://mercurial.selenic.com/)があります。それぞれ一長一短あります。
 詳しくは、[Mercurial 対 Git：なぜ Mercurial を選ぶのか？ ](http://japan.blogs.atlassian.com/2012/03/mercurial-vs-git-why-mercurial/)
-と[Git 対 Mercurial：なぜ Git を選ぶのか？ ](http://japan.blogs.atlassian.com/2012/05/git-vs-mercurial-why-git/)を参照してみてください。私は今のところ両方使ってます。
+と[Git 対 Mercurial：なぜ Git を選ぶのか？ ](http://japan.blogs.atlassian.com/2012/05/git-vs-mercurial-why-git/)を参照してみてください。
+ ~~私は今のところ両方使ってます~~ 
+私は今はgitを使っています。
 
 どちらを使うにしても、バージョン管理ツールを使うと次のようなことができます。
 
@@ -60,11 +62,10 @@ Windows の場合は、[Git](http://git-scm.com/)か[Mercurial](http://mercurial
 
 共同作業をするには、リモートリポジトリを作る必要があります。Dropboxやsshでloginできる普通のサーバーでもできないことはないのですが、専用のサーバーの方が便利です。自分でサーバーを立ててもよいのですが、普通の人にとっては面倒なので、以下の様なホスティングサービスを利用するのが便利です。
 
-* [GitHub](https://github.com/)。Gitのみ。無料では公開プロジェクトのみ。
+* [GitHub](https://github.com/)。Gitのみ。無料でも非公開プロジェクトが作れるようになった。
 * [BitBucket](https://bitbucket.org/)。GitとMercurialが使える。無料では、非公開プロジェクトにコミットできるのは5人まで。
-* [codebreak;](https://codebreak.com/)。Gitのみ。無料でも、公開、非公開いずれもプロジェクト数、コミットできる人数に制限なし。
 
-公開してもよいようなものならGitHub、非公開のものならBitBucketかcodebreak;、Mercurialを使うならBitBucketといったところでしょうか。
+Gitなら、もうGitHubの方がいいと思います。Mercurialを使うならBitBucketしかないです。
 
 ## 共同作業
 
