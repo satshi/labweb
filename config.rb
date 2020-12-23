@@ -40,7 +40,7 @@ set :images_dir, 'img'
 
 # Markdown
 set :markdown_engine, :redcarpet
-set :markdown, :no_intra_emphasis => true, :fenced_code_blocks => true, :strikethrough => true
+set :markdown, :footnotes => true, :no_intra_emphasis => true, :fenced_code_blocks => true, :strikethrough => true
 
 # Build-specific configuration
 configure :build do
