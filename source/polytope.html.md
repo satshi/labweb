@@ -6,6 +6,8 @@ pageid: polytope
 ---
 ## ４次元多胞体を見るWebアプリ
 
+![多胞体](img/polytope.png)
+
 ### 場所
  [アプリはここ](https://satshi.github.io/app/)。[ちょっとした説明とソースコードはここ](https://github.com/satshi/polytope)。
 
