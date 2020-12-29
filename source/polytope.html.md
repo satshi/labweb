@@ -8,7 +8,10 @@ pageid: polytope
 
 ![多胞体](img/polytope.png)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hjcY2zeuUDM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### 場所
+
  [アプリはここ](https://satshi.github.io/app/)。[ちょっとした説明とソースコードはここ](https://github.com/satshi/polytope)。
 
 ### 使い方
