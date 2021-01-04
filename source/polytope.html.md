@@ -12,13 +12,13 @@ pageid: polytope
 
 ### 場所
 
- [アプリはここ](https://satshi.github.io/app/)。[ちょっとした説明とソースコードはここ](https://github.com/satshi/polytope)。
+ [アプリはここ](https://satshi.github.io/app/)。[ソースコード](https://github.com/satshi/polytope/)。[日本語のREADME](https://github.com/satshi/polytope/blob/master/README.jp.md)。
 
 ### 使い方
 
 とりあえず、「View」のボタンを押す。
 回転する４次元立方体が見えるはず。
-詳しくは [ここ](https://github.com/satshi/polytope)を参照。
+詳しくは [ここ](https://github.com/satshi/polytope/blob/master/README.jp.md)を参照。
 
 ## 経緯
 
