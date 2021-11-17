@@ -30,6 +30,8 @@ pageid: research
 
 ### オリジナル研究の発表スライドなど
 
+- [Non-invertible topological defects in 4-dimensional Z<sub>2</sub> pure lattice gauge theory](pdf/dualitydefect.pdf)
+- [Supersymmetric quantum field theory with exotic symmetry in 3+1 dimensions and fermionic fracton phases](pdf/fractonsusy.pdf)
 - [フェルミオンの経路積分とAtiyah-Patodi-Singer指数](pdf/fermionpathintegral.pdf) Summer School 数理物理2020で講演したときの手書きノートです。
 - [フェルミオンの経路積分とAtiyah-Patodi-Singer指数](pdf/anomalynote.pdf) 上のものの予稿です。
 - ['t Hooft anomaly matching condition and Chiral symmetry breaking withoutfermion bilinear condensate](pdf/chisb.pdf)
