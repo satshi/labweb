@@ -14,7 +14,7 @@ gem 'middleman'
 gem 'middleman-livereload'
 
 # middleman-deploy
-gem 'middleman-deploy', '~> 2.0.0.pre.alpha'
+# gem 'middleman-deploy', '~> 2.0.0.pre.alpha'
 gem 'redcarpet'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'

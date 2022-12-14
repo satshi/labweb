@@ -61,13 +61,13 @@ configure :build do
   set :relative_links, true
 end
 
-activate :deploy do |deploy|
-  deploy.deploy_method   = :sftp
-  deploy.host     = 'kabuto.phys.sci.osaka-u.ac.jp'
-  deploy.port     = 22
-  deploy.path     = 'public_html/j'
-  # Optional Settings
-  deploy.user     = 'yamaguch' # no default
-  #deploy.password = 'secret' # no default
-  #deploy.build_before = true # default: false
-end
+# activate :deploy do |deploy|
+#   deploy.deploy_method   = :sftp
+#   deploy.host     = 'kabuto.phys.sci.osaka-u.ac.jp'
+#   deploy.port     = 22
+#   deploy.path     = 'public_html/j'
+#   # Optional Settings
+#   deploy.user     = 'yamaguch' # no default
+#   #deploy.password = 'secret' # no default
+#   #deploy.build_before = true # default: false
+# end
