@@ -1,3 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
+chmod o+r build/**/*.*
 rsync -auvzP build/ kabuto:~/public_html/j/
