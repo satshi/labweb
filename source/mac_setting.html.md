@@ -30,18 +30,15 @@ sudo tlmgr paper a4
 
 - 日本語でヒラギノフォントを埋め込む場合、[Bibunsho7-patch/Patch.app](https://github.com/munepi/bibunsho7-patch/)を使う。「LaTeX2e美文書作成入門の付録DVD-ROM内のMac OS X用インストーラーから、…」と書いてあるが、[MacTeX - TeX Users Group](https://tug.org/mactex/)のものをインストールした場合にこのパッチをあててもうまくいっている。
 
-### TeXShopで日本語
-
-- アプリケーションフォルダの中のTeXフォルダの中のTeXShopを立ち上げる。古い場合は、アップデートする。
-- メニューからTeXShop/環境設定を開く。
-- 「書類」タブの一番下、設定プロファイルで「pTeX(ptex2pdf)」を選ぶ。
-- あまり細かいことを気にしない場合は「タイプセット」タブの「デフォルトのスクリプト」を「Tex + DVI」にする。
-- ほとんど英語しか使わないし、英語ではpdflatexを使いたいという方は、デフォルトで「Pdftex」にしておく。この場合、日本語を使う時はメニューのタイプセット/Tex + DVIを選択する。
 
 ### latexmk
 
-TeXで必要な回数texをかけてくれたり、必要ならbibtexなども自動的にやってくれるツール。設定はデフォルトの設定 ~/.latexmkrc に書く。以下、日本語はuplatex、synctexを使用する設定ファイル。ビューワーはSkimを使用。
+TeXで必要な回数texをかけてくれたり、必要ならbibtexなども自動的にやってくれるツール。設定は一番良く使うであろうものを ~/.latexmkrc に書く。
+しかし、この設定ファイルに頼らずにプロジェクトごとに設定ファイルを置くべき。プロジェクトごとの設定ファイルは、プロジェクトのディレクトリ（普通texファイルが置いてあるディレクトリ）に`latexmk`というファイル（最初に.がついてないことに注意）。
 
+以下設定ファイルの例。
+
+1. 日本語でuplatexを使用する場合：
 ``` perl
 $latex = 'uplatex %O -synctex=1 %S';
 $pdflatex = 'pdflatex %O -synctex=1 %S';
@@ -53,38 +50,35 @@ $dvipdf = 'dvipdfmx %O -o %D %S';
 $dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
 $ps2pdf = 'ps2pdf %O %S %D';
 $pdf_mode = 3;
-$pvc_view_file_via_temporary = 0;
-$pdf_previewer = 'open -ga /Applications/Skim.app';
+```
+2. 英語でpdflatexを使用する場合
+``` perl
+$latex = 'uplatex %O -synctex=1 %S';
+$pdflatex = 'pdflatex %O -synctex=1 %S';
+$lualatex = 'lualatex %O -synctex=1 %S';
+$biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
+$bibtex = 'upbibtex %O %B';
+$makeindex = 'upmendex %O -o %D %S';
+$dvipdf = 'dvipdfmx %O -o %D %S';
+$dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
+$ps2pdf = 'ps2pdf %O %S %D';
+$pdf_mode = 1;
+```
+3. 日本語か英語でlualatexを使用する場合
+``` perl
+$latex = 'uplatex %O -synctex=1 %S';
+$pdflatex = 'pdflatex %O -synctex=1 %S';
+$lualatex = 'lualatex %O -synctex=1 %S';
+$biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
+$bibtex = 'upbibtex %O %B';
+$makeindex = 'upmendex %O -o %D %S';
+$dvipdf = 'dvipdfmx %O -o %D %S';
+$dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
+$ps2pdf = 'ps2pdf %O %S %D';
+$pdf_mode = 4;
 ```
 
-プロジェクトごとに設定を変えることができる。プロジェクトのディレクトリ（普通texファイルが置いてあるディレクトリ）に`latexmk`というファイル（最初に.がついてないことに注意）を置くとその設定が優先される。
-
-### Atom + latextools + Skim
-
-（2018年5月追記：atom の latextools は開発が止まってしまっています。私はもう使っていませんが、念のため残しておきます。）
-
-AtomをTeX用のエディタとして使用する。
-
-- まず、パッケージ language-latex と latextools を導入する。
-- latextoolsの設定でBuilder Setting Programをlualatexに変更。
-- Skim は普通にインストールし、PDF-TeX同期サポートの初期値をAtomに設定する。
-
-これで英語だけなら使い物になるはず。
-
-- texファイルを読み込んで、cmd+option+b でタイプセット。タイプセットされ、エラーが無ければ、Skimが立ち上がる。
-- Atom のtexのソースの方でcmd+l j でpdfの該当箇所に飛ぶ。pdf の方で cmd+shift+クリックで対応するtex のソースの場所に飛ぶ。
-- latexの編集の補助は便利。詳しくはマニュアルを参照。
-- 日本語を使う場合も luatex-ja でやるならそのままできる。
-
-ptexを使う場合、次のようにすれば一応使える。
-
-- 上のlatexmkの設定をする。
-- latextools の２箇所を改造する。coffeescriptなので**インデントを変えない**ように注意。
-  - １箇所めは、``~/.atom/packages/latextools/lib/builder.coffee``の104行目``whitelist = ["pdflatex", "xelatex", "lualatex"]``を``whitelist = ["pdflatex", "xelatex", "lualatex","pdfdvi"]``に変更する。リストの最後に``"pdfdvi"``を追加した。
-  - ２箇所め。``~/.atom/packages/latextools/lib/latextools.coffee``の152行目``enum: ["pdflatex", "xelatex", "lualatex"]``を``enum: ["pdflatex", "xelatex", "lualatex","pdfdvi"]``に変更する。やはりリストの最後に``"pdfdvi"``を追加した。
-
-- ptexを主に使うなら、atomを立ち上げなおし、latextoolsの設定のlatextoolsの設定でBuilder Setting Programをpdfdviに変更。
-- ptexはたまにしか使わないなら、設定のところのBuilder Setting Programはlualatexのままにしておき、ptexを使いたい文書のtexファイルの先頭に``% !TEX program = pdfdvi``を入れる。
+上の３つの例では、$pdfmode だけが異なる。platexの設定は書いてないが、uplatexでもよいならuplatexを使うべき。不幸にしてスタイルファイルを強制されているなどの理由でplatexを使わなければならない場合にはuplatexの設定の中の"upなんとか"を"pなんとか"に書き換えればよいはず。
 
 ### VSCode+latex-workshop
 
@@ -150,23 +144,22 @@ ptexを使う場合、次のようにすれば一応使える。
   ],
 ```
 
-- latexmkの設定をする。上を参照。
+### TeXShopで日本語
 
-これで日本語のtexファイルがコンパイルできるようになっているはず。
+（2023年2月追記：私はTeXShopを使ってないので以下の情報は古いです）
+
+- アプリケーションフォルダの中のTeXフォルダの中のTeXShopを立ち上げる。古い場合は、アップデートする。
+- メニューからTeXShop/環境設定を開く。
+- 「書類」タブの一番下、設定プロファイルで「pTeX(ptex2pdf)」を選ぶ。
+- あまり細かいことを気にしない場合は「タイプセット」タブの「デフォルトのスクリプト」を「Tex + DVI」にする。
+- ほとんど英語しか使わないし、英語ではpdflatexを使いたいという方は、デフォルトで「Pdftex」にしておく。この場合、日本語を使う時はメニューのタイプセット/Tex + DVIを選択する。
+
 
 ## エディタ
 
 ### CotEditor
 
-- [CotEditor -Text Editor for OS X](http://coteditor.github.io/)からもらってくる。普段使いに便利なエディタ。
-
-### Atom
-
-- [Atom](https://atom.io/)からもらってくる。高機能なエディタ。重い。
-
-### Visual Studio Code
-
-- [Visual Studio Code - Code Editing. Redefined](https://code.visualstudio.com/)からもらってくる。高機能なエディタ。最近はAtomより、こちらを使っている。
+- App Storeからもらってくる。普段使いに便利なエディタ。
 
 ## Homebrew
 
@@ -177,25 +170,14 @@ ptexを使う場合、次のようにすれば一応使える。
 
 ### Inkscape
 
-ドロー系のお絵かきソフトで論文などに入れる図を書くのに使う。Windowsの時は使いやすかったのだが、Macとは相性がそれほどよくないよう。
-
-まず、今のところXが必要なので導入する。 [XQuartz](http://xquartz.macosforge.org/landing/)に行ってバイナリーをもらってくる。
-
-次に
+ドロー系のお絵かきソフトで論文などに入れる図を書くのに使う。Macでもだいぶ使いやすくなった。
 [Draw Freely. | Inkscape](http://www.inkscape.org/ja/)に行って、バイナリーをもらってくる。
 
-- 趣味にもよるが、メニューなどを日本語にする。InkscapeのメニューのFile > Inkscape Preferencesを開き、InterfaceのところのLanguage をJapanese(ja)にし、Inkscape を再起動する。
-- コピー・アンド・ペーストするとその部分がラスター画像になってしまう問題がある。解決するにはX11のメニューから「X11の環境設定」を開いて「ペーストボード」のタブの「CLIPBOARDが変更されたときにペーストボードをアップデート」のチェックをはずす。
-- 数式を貼りたい。試した限りではLatexitからコピペは難しい。デフォルトで数式を扱うプラグインが入っているのでそれを使う。homebrewでpstoeditをインストールする。Inkscapeを再起動するとメニューのエクステンション＞レンダリング＞Latex数式を選ぶとダイアログが出てきてtexの書式で数式が書ける。何かエラーが出ているが、とりあえず書けるようにはなった。
-- メニューなどのフォントがイマイチ。
+数式を貼りたい。試した限りではLatexitからコピペは難しい。デフォルトで数式を扱うプラグインが入っているのでそれを使う。Inkscapeを起動するときにterminalからやらなければならないっぽい？ terminal で``open -a Inkscape``と入力してリターン。そしてInkscapeのメニューのエクステンション＞レンダリング＞公式(pdflatex)を選ぶとダイアログが出てきてtexの書式で数式が書ける。
 
 ### Gimp
 
 こちらはペイントと画像処理のソフト。あまり使わないが時々必要なのインストールする。 [GIMP - The GNU Image Manipulation Program](http://www.gimp.org/)からもらってきて入れるだけ。
-
-## FirefoxとThunderbird
-
-普通にインストールして、Windowsから設定を持ってくるとそのまま使えた。
 
 ## 小物
 
