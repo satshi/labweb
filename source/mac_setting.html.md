@@ -9,27 +9,17 @@ pageid: mac_setting
 
 ### 日本語入力
 
-ことえりは使いにくいので [Google 日本語入力](http://www.google.co.jp/ime/)を導入する。
+私は[Google 日本語入力](http://www.google.co.jp/ime/)を導入している。
 
 ## TeX
 
+2023年現在[Overleaf](https://ja.overleaf.com/)を使うのが一番楽で安定しているようだ。ただ無料版だと履歴が1日分くらいしか残せないらしい。ローカルならgitで管理すれば、完全に履歴が残せる。それ以外にもオフラインでも使いたいとか、手元にないと何となく不安とかあるので、本格的にTeXを使うならローカルにインストールしておくほうがいい気もする。
+
+以下、ローカルで使いたい人向け。
+
 ### MacTeX
-
-- [MacTeX - TeX Users Group](https://tug.org/mactex/)を、もらってきてそのままインストールする。この段階で結構使い物になる。
-- [MacTeX - TeX Wiki](https://texwiki.texjp.org/?MacTeX)を参考にして設定をする。まずはアップデート。
-
-~~~ bash
-sudo tlmgr update --self --all
-~~~
-
-紙のデフォルトをa4にする。
-
-~~~ bash
-sudo tlmgr paper a4
-~~~
-
-- 日本語でヒラギノフォントを埋め込む場合、[Bibunsho7-patch/Patch.app](https://github.com/munepi/bibunsho7-patch/)を使う。「LaTeX2e美文書作成入門の付録DVD-ROM内のMac OS X用インストーラーから、…」と書いてあるが、[MacTeX - TeX Users Group](https://tug.org/mactex/)のものをインストールした場合にこのパッチをあててもうまくいっている。
-
+- インストールする前に[MacTeX をおすすめできる場合とそうでない場合（私見） | ラング・ラグー](https://blog.wtsnjp.com/2020/07/07/about-mactex/)を読んでおくべきかも。私はMacTeXをインストーラーからインストールしたけれど、特に問題は起きていない。ただ気持ち悪いのは分かるので、今からやるならhomebrewでやると思う。
+- [MacTeX - TeX Wiki](https://texwiki.texjp.org/?MacTeX)を参考にしてインストールや設定をする。
 
 ### latexmk
 
@@ -39,60 +29,65 @@ TeXで必要な回数texをかけてくれたり、必要ならbibtexなども�
 以下設定ファイルの例。
 
 1. 日本語でuplatexを使用する場合：
-``` perl
-$latex = 'uplatex %O -synctex=1 %S';
-$pdflatex = 'pdflatex %O -synctex=1 %S';
-$lualatex = 'lualatex %O -synctex=1 %S';
-$biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
-$bibtex = 'upbibtex %O %B';
-$makeindex = 'upmendex %O -o %D %S';
-$dvipdf = 'dvipdfmx %O -o %D %S';
-$dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
-$ps2pdf = 'ps2pdf %O %S %D';
-$pdf_mode = 3;
-```
+
+    ``` perl
+    $latex = 'uplatex %O -synctex=1 %S';
+    $pdflatex = 'pdflatex %O -synctex=1 %S';
+    $lualatex = 'lualatex %O -synctex=1 %S';
+    $biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
+    $bibtex = 'upbibtex %O %B';
+    $makeindex = 'upmendex %O -o %D %S';
+    $dvipdf = 'dvipdfmx %O -o %D %S';
+    $dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
+    $ps2pdf = 'ps2pdf %O %S %D';
+    $pdf_mode = 3;
+    ```
+
 2. 英語でpdflatexを使用する場合
-``` perl
-$latex = 'uplatex %O -synctex=1 %S';
-$pdflatex = 'pdflatex %O -synctex=1 %S';
-$lualatex = 'lualatex %O -synctex=1 %S';
-$biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
-$bibtex = 'upbibtex %O %B';
-$makeindex = 'upmendex %O -o %D %S';
-$dvipdf = 'dvipdfmx %O -o %D %S';
-$dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
-$ps2pdf = 'ps2pdf %O %S %D';
-$pdf_mode = 1;
-```
+
+    ``` perl
+    $latex = 'uplatex %O -synctex=1 %S';
+    $pdflatex = 'pdflatex %O -synctex=1 %S';
+    $lualatex = 'lualatex %O -synctex=1 %S';
+    $biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
+    $bibtex = 'upbibtex %O %B';
+    $makeindex = 'upmendex %O -o %D %S';
+    $dvipdf = 'dvipdfmx %O -o %D %S';
+    $dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
+    $ps2pdf = 'ps2pdf %O %S %D';
+    $pdf_mode = 1;
+    ```
+
 3. 日本語か英語でlualatexを使用する場合
-``` perl
-$latex = 'uplatex %O -synctex=1 %S';
-$pdflatex = 'pdflatex %O -synctex=1 %S';
-$lualatex = 'lualatex %O -synctex=1 %S';
-$biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
-$bibtex = 'upbibtex %O %B';
-$makeindex = 'upmendex %O -o %D %S';
-$dvipdf = 'dvipdfmx %O -o %D %S';
-$dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
-$ps2pdf = 'ps2pdf %O %S %D';
-$pdf_mode = 4;
-```
+
+    ``` perl
+    $latex = 'uplatex %O -synctex=1 %S';
+    $pdflatex = 'pdflatex %O -synctex=1 %S';
+    $lualatex = 'lualatex %O -synctex=1 %S';
+    $biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
+    $bibtex = 'upbibtex %O %B';
+    $makeindex = 'upmendex %O -o %D %S';
+    $dvipdf = 'dvipdfmx %O -o %D %S';
+    $dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
+    $ps2pdf = 'ps2pdf %O %S %D';
+    $pdf_mode = 4;
+    ```
 
 上の３つの例では、$pdfmode だけが異なる。platexの設定は書いてないが、uplatexでもよいならuplatexを使うべき。不幸にしてスタイルファイルを強制されているなどの理由でplatexを使わなければならない場合にはuplatexの設定の中の"upなんとか"を"pなんとか"に書き換えればよいはず。
 
 使い方は、プロジェクトのディレクトリで texファイルが１つしかない場合は
-``` bash
-latexmk
-```
+    ``
+    latexmk
+    ``
 と入力することでビルドできる。texファイルがたくさんある場合は
-``` bash
-latexmk (ビルドしたいファイル名)
-```
+    ``
+    latexmk (ビルドしたいファイル名)
+    ``
 とする。
 
 ### VSCode+latex-workshop
 
-開発速度が比較的速いので、すぐ情報が古くなることに注意。以下2018年5月現在の情報。
+開発速度が比較的速いので、すぐ情報が古くなることに注意。以下2023年3月現在の情報。
 
 まず、VSCodeを[Visual Studio Code - Code Editing. Redefined](https://code.visualstudio.com/)からもらってきてインストールする。
 
@@ -102,57 +97,17 @@ latexmk (ビルドしたいファイル名)
 - そこでlatex-workshopを検索して「インストール」のところを押す。
 - そして「再読み込み」のところを押す。
 
-これで英語のlatexファイルなら使えるようになっているはず。cmd+shift+Pでコマンドパレットが開くので、latexと打つと、それ関係のコマンドが出てくる。ショートカットも表示されるので、よく使いそうなものは覚える。
+これで英語でpdflatexなら使えるようになっているはず。cmd+shift+Pでコマンドパレットが開くので、latexと打つと、それ関係のコマンドが出てくる。ショートカットも表示されるので、よく使いそうなものは覚える。
 
-スペルチェックがあると便利。私はSpell Rightというパッケージのを使っている。
+スペルチェックがあると便利。私はLTeXというパッケージのを使っている。
 
-日本語を編集するためには超えなければならない問題がある。一つは日本語変換で何かやっているときに間違ってコントロールキャラクターが入ってしまうことがあり、コンパイルのときにエラーが出る。これはVSCodeの（というかelectronの、あるいはChromiumの）バグで2018年5月現在直っていない。対処方法は次のようにコントロールキャラクターを表示する設定にすること。
+日本語を使いたい場合、あるいは日本語と英語を両方使いたい場合には、少し設定が必要。歴史的な理由からcmd+option+bでのビルドのデフォルトはlatexmkだけれど強制的にpdflatexでやるものになっている。昔はこれを書きかえなければならなかったが、今はlatexmkrc読んでビルドするレシピ"latexmk(latexmkrc)"が元からついているのでこれを使うのが一番安定。次のようにする。
 
-- cmd+,で設定タブを開く。
-- controlとかで検索して「既定のユーザー設定」の方の"editor.renderControlCharacters": false,という行を見つける。
-- その行の先頭のへんにマウスカーソルを持っていくと鉛筆みたいな印が出るので、そこを押す。
-- falseとtrueが出るのでtrueを押す。
-- 右のユーザー設定の方にtrueになった設定がコピーされるので、それを保存する。
+- 上のlatexmkの設定をやる。
+- texファイルを開いて cmd+shift+Pのコマンドパレットから"latex build"とかで検索して"Latex-workshop: build with recipe"を選択する。出てきたところから"latexmk(latexmkrc)"を選択。これで正しくビルドできているはず。
+- しかし、これを毎回やるのは面倒なので次の設定をやる。cmd+, で設定を開く。"latex recipe"とかで検索してLatex-workshop>Latex>Recipe:Defaultの項目を探す。ここをlastUsedに変える。これで一回メニューからlatexmk(latexmkrc)でビルドしたら、次からはcmd+option+bでlatexmk(latexmkrc)のレシピでビルドできる。
+- 好みで Latex-workshop>Latex>Auto Build: Runのところも変える。私はonSaveにしている。
 
-日本語をあつかうときにもう一つやらないといけないのは、texをコンパイルするときの設定。
-
-- cmd+,で設定タブを開く。
-- 検索して「既定のユーザー設定」の方の"latex-workshop.latex.recipes":…という行を見つける。
-- その行の先頭のへんにマウスカーソルを持っていくと鉛筆みたいな印が出るので、そこを押す。
-- 「設定にコピー」を押してユーザー設定の方にコピーする。
-- 次のように書き換えて保存する。基本的にlatexmkのargsの中の"-pdf",という行を消しただけ。
-
-```json
-  "latex-workshop.latex.tools": [
-    {
-      "name": "latexmk",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "%DOC%"
-      ]
-    },
-    {
-      "name": "pdflatex",
-      "command": "pdflatex",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "%DOC%"
-      ]
-    },
-    {
-      "name": "bibtex",
-      "command": "bibtex",
-      "args": [
-        "%DOCFILE%"
-      ]
-    }
-  ],
-```
 
 ### TeXShopで日本語
 
