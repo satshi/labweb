@@ -38,8 +38,6 @@ TeXで必要な回数texをかけてくれたり、必要ならbibtexなども�
     $bibtex = 'upbibtex %O %B';
     $makeindex = 'upmendex %O -o %D %S';
     $dvipdf = 'dvipdfmx %O -o %D %S';
-    $dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
-    $ps2pdf = 'ps2pdf %O %S %D';
     $pdf_mode = 3;
     ```
 
@@ -53,8 +51,6 @@ TeXで必要な回数texをかけてくれたり、必要ならbibtexなども�
     $bibtex = 'upbibtex %O %B';
     $makeindex = 'upmendex %O -o %D %S';
     $dvipdf = 'dvipdfmx %O -o %D %S';
-    $dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
-    $ps2pdf = 'ps2pdf %O %S %D';
     $pdf_mode = 1;
     ```
 
@@ -68,8 +64,6 @@ TeXで必要な回数texをかけてくれたり、必要ならbibtexなども�
     $bibtex = 'upbibtex %O %B';
     $makeindex = 'upmendex %O -o %D %S';
     $dvipdf = 'dvipdfmx %O -o %D %S';
-    $dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
-    $ps2pdf = 'ps2pdf %O %S %D';
     $pdf_mode = 4;
     ```
 
@@ -99,13 +93,12 @@ TeXで必要な回数texをかけてくれたり、必要ならbibtexなども�
 
 これで英語でpdflatexなら使えるようになっているはず。cmd+shift+Pでコマンドパレットが開くので、latexと打つと、それ関係のコマンドが出てくる。ショートカットも表示されるので、よく使いそうなものは覚える。
 
-スペルチェックがあると便利。私はLTeXというパッケージのを使っている。
+スペルチェックがあると便利。私はLTeXというパッケージを使っている。これは簡単な文法チェックもやってくれるもの。
 
-日本語を使いたい場合、あるいは日本語と英語を両方使いたい場合には、少し設定が必要。歴史的な理由からcmd+option+bでのビルドのデフォルトはlatexmkだけれど強制的にpdflatexでやるものになっている。昔はこれを書きかえなければならなかったが、今はlatexmkrc読んでビルドするレシピ"latexmk(latexmkrc)"が元からついているのでこれを使うのが一番安定。次のようにする。
+日本語を使いたい場合、あるいは日本語と英語を両方使いたい場合には、少し設定が必要。歴史的な理由からcmd+option+bでのビルドのデフォルトはlatexmkだけれど強制的にpdflatexでやるものになっている。昔はこれを書きかえなければならなかったが、今はlatexmkrc読んでビルドするレシピ``latexmk (latexmkrc)``が元からついているのでこれを使うのが一番安定。次のようにする。
 
 - 上のlatexmkの設定をやる。
-- texファイルを開いて cmd+shift+Pのコマンドパレットから"latex build"とかで検索して"Latex-workshop: build with recipe"を選択する。出てきたところから"latexmk(latexmkrc)"を選択。これで正しくビルドできているはず。
-- しかし、これを毎回やるのは面倒なので次の設定をやる。cmd+, で設定を開く。"latex recipe"とかで検索してLatex-workshop>Latex>Recipe:Defaultの項目を探す。ここをlastUsedに変える。これで一回メニューからlatexmk(latexmkrc)でビルドしたら、次からはcmd+option+bでlatexmk(latexmkrc)のレシピでビルドできる。
+- cmd+, で設定を開く。"latex recipe"とかで検索してLatex-workshop>Latex>Recipe:Defaultの項目を探す。ここを``latexmk (latexmkrc)``に書き換える。これで、cmd+option+bでlatexmk(latexmkrc)のレシピでビルドできる。
 - 好みで Latex-workshop>Latex>Auto Build: Runのところも変える。私はonSaveにしている。
 
 
@@ -128,8 +121,8 @@ TeXで必要な回数texをかけてくれたり、必要ならbibtexなども�
 
 ## Homebrew
 
-パッケージマネージャーと呼ばれるソフト。いろんなものをインストールしたりアンインストールしたりする。まず、XCode（無料だけどでかい）をApp Storeからインストールしておくことが必要。
- [Homebrew — The missing package manager for OS X](http://brew.sh/)にいって、Homebrewを導入。
+パッケージマネージャーと呼ばれるソフト。いろんなものをインストールしたりアンインストールしたりする。
+ [Homebrew — The missing package manager for OS X](http://brew.sh/)に行って、Homebrewを導入。
 
 ## お絵かき
 
