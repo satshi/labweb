@@ -26,17 +26,18 @@ pageid: mac_setting
 TeXで必要な回数texをかけてくれたり、必要ならbibtexなども自動的にやってくれるツール。設定は一番良く使うであろうものを ~/.latexmkrc に書く。
 しかし、この設定ファイルに頼らずにプロジェクトごとに設定ファイルを置くべき。プロジェクトごとの設定ファイルは、プロジェクトのディレクトリ（普通texファイルが置いてあるディレクトリ）に`latexmk`というファイル（最初に.がついてないことに注意）。
 
-以下設定ファイルの例。
+以下設定ファイルの例（2023年3月ちょくちょく変えてます）。
 
 1. 日本語でuplatexを使用する場合：
 
     ``` perl
-    $latex = 'uplatex %O -synctex=1 %S';
-    $pdflatex = 'pdflatex %O -synctex=1 %S';
-    $lualatex = 'lualatex %O -synctex=1 %S';
+    $texoption = ' %O -interaction=nonstopmode -file-line-error -synctex=1 %S';
+    $latex = 'uplatex'.$texoption;
+    $pdflatex = 'pdflatex'.$texoption;
+    $lualatex = 'lualatex'.$texoption;
     $biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
-    $bibtex = 'upbibtex %O %B';
-    $makeindex = 'upmendex %O -o %D %S';
+    $bibtex = 'pbibtex %O %B';
+    $makeindex = 'mendex %O -o %D %S';
     $dvipdf = 'dvipdfmx %O -o %D %S';
     $pdf_mode = 3;
     ```
@@ -44,25 +45,27 @@ TeXで必要な回数texをかけてくれたり、必要ならbibtexなども�
 2. 英語でpdflatexを使用する場合
 
     ``` perl
-    $latex = 'uplatex %O -synctex=1 %S';
-    $pdflatex = 'pdflatex %O -synctex=1 %S';
-    $lualatex = 'lualatex %O -synctex=1 %S';
+    $texoption = ' %O -interaction=nonstopmode -file-line-error -synctex=1 %S';
+    $latex = 'uplatex'.$texoption;
+    $pdflatex = 'pdflatex'.$texoption;
+    $lualatex = 'lualatex'.$texoption;
     $biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
-    $bibtex = 'upbibtex %O %B';
-    $makeindex = 'upmendex %O -o %D %S';
+    $bibtex = 'pbibtex %O %B';
+    $makeindex = 'mendex %O -o %D %S';
     $dvipdf = 'dvipdfmx %O -o %D %S';
     $pdf_mode = 1;
     ```
 
 3. 日本語か英語でlualatexを使用する場合
 
-    ``` perl
-    $latex = 'uplatex %O -synctex=1 %S';
-    $pdflatex = 'pdflatex %O -synctex=1 %S';
-    $lualatex = 'lualatex %O -synctex=1 %S';
+     ``` perl
+    $texoption = ' %O -interaction=nonstopmode -file-line-error -synctex=1 %S';
+    $latex = 'uplatex'.$texoption;
+    $pdflatex = 'pdflatex'.$texoption;
+    $lualatex = 'lualatex'.$texoption;
     $biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
-    $bibtex = 'upbibtex %O %B';
-    $makeindex = 'upmendex %O -o %D %S';
+    $bibtex = 'pbibtex %O %B';
+    $makeindex = 'mendex %O -o %D %S';
     $dvipdf = 'dvipdfmx %O -o %D %S';
     $pdf_mode = 4;
     ```
