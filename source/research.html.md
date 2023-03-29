@@ -29,6 +29,7 @@ pageid: research
  見れなくなっているようです。
 
 ### オリジナル研究の発表スライドなど
+- [Non-invertible symmetry on the lattice](pdf/non-invertible.pdf) 基礎物理学研究所とSeoul National Universityで行った講義の手書きノートです。
 - [場の理論におけるアノマリーと指数定理について](pdf/anomaly_index_note.pdf) 神戸大学で行った集中講義の手書きノートです。
 - [Non-invertible topological defects in 4-dimensional Z<sub>2</sub> pure lattice gauge theory](pdf/dualitydefect.pdf)
 - [Supersymmetric quantum field theory with exotic symmetry in 3+1 dimensions and fermionic fracton phases](pdf/fractonsusy.pdf)
