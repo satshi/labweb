@@ -38,9 +38,13 @@ set :css_dir, 'css'
 set :js_dir, 'js'
 set :images_dir, 'img'
 
+#syntax
+activate :syntax
+
 # Markdown
+#set :markdown, :footnotes => true, :no_intra_emphasis => true, :fenced_code_blocks => true, :strikethrough => true
+set :markdown, :tables => true, :autolink => true, :gh_blockcode => true, :fenced_code_blocks => true, :lax_spacing =>true, :with_toc_data => true, :smartypants => true, :footnotes => true, :no_intra_emphasis => true
 set :markdown_engine, :redcarpet
-set :markdown, :footnotes => true, :no_intra_emphasis => true, :fenced_code_blocks => true, :strikethrough => true
 
 # Build-specific configuration
 configure :build do
