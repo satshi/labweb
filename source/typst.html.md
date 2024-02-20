@@ -1,6 +1,6 @@
 ---
 layout: flat
-title: Typst： 使えそうなLaTeXの代替
+title: Typst： いい感じのLaTeXの代替
 lead:
 pageid: typst
 ---
@@ -31,7 +31,7 @@ Typstに関する情報は、例えば次のところから得られます。
 - Typstの様々な情報へのリンク集 [Awesome Typst Links](https://github.com/qjcg/awesome-typst)
 
 ## 導入
-Typstを使いたい場合、一番お手軽なのはオンラインアプリ [Typst](https://typst.app/)を使うことです。フォントなどは、代表的なものが入っているので、通常の使い方で困ることは少ないと思います。
+Typstを使いたい場合、一番お手軽なのはWebアプリ [Typst](https://typst.app/)を使うことです。フォントなどは、代表的なものが入っているので、通常の使い方で困ることは少ないと思います。
 
 ローカルで使いたい場合、例えばvscodeの中で使うなら"Typst LSP"というパッケージを導入すれば、使えます。
 
@@ -93,7 +93,7 @@ Hello world!😀
 
 ここで用いたフォント"Harano Aji Mincho"は、日本語の明朝体のフリーのフォントで、typstのWebアプリにもインストールされています。Webアプリで元からインストールされているフォント一覧は「Ag」と書いてあるボタンを押すと分かります。ローカルでは、コマンドラインから `typst fonts` と入力すると、使えるフォント一覧が分かります。
 
-日本語のちょっと長めの文を書いてみました。とりあえず、悪くない出力結果が得られました。ただ、お行儀の良い書き方なのかは、よく分かりません。[出力結果はこちら](pdf/typstexample.pdf)
+日本語のちょっと長めの文を書いてみました。文章中の図のファイル[area.svg](img/area.svg)。とりあえず、悪くない出力結果が得られました。ただ、お行儀の良い書き方なのかは、よく分かりません。[出力結果はこちら](pdf/typstexample.pdf)
 
 ```typst
 #let roman = "Linux Libertine"
@@ -111,12 +111,15 @@ Hello world!😀
   first-line-indent: 1em,
 )
 
+#show heading: it => {
+  it
+  v(0.8em)
+}
+
+// 様々な場所でのフォント
 #show heading: set text(font: kakugothic)
 #show strong: set text(font: kakugothic)
 #show math.equation: set text(font: (math_font,roman,mincho)) 
-
-
-#import "@preview/physica:0.9.2": expval
 
 // 数式番号
 #set math.equation(numbering: "(1)")
@@ -140,12 +143,13 @@ Hello world!😀
 #show figure.caption: it => [
   #block(width: 90%,
     [図 #counter(figure).display(): #h(0.5em) #it.body])
+  #v(1em)
 ]
 #show figure.caption: set text(font: kakugothic, weight: "semibold" ,10pt)
 #show figure.caption: set align(left)
 
 // expvalをとってくる
-#import "@preview/physica:0.9.1": expval
+#import "@preview/physica:0.9.2": expval
 
 = レポート問題と解説
 #align(right, [担当：山口哲])
@@ -170,13 +174,9 @@ $ expval(W(C)) ∼ exp(- T L_1 L_2) $
 
 ヒント： 以下に挙げる書籍や他の文献で、ゲージ群がSU$(N)$ (SU$(3)$)の場合の解説がある。これらの文献では群の積分の公式を導いて用いている。今回考えたモデルのように、ゲージ群が $ℤ_2$ の場合には、代わりに必要な公式は $b = 0, 1$ として $∑_(a = 0 , 1) (- 1)^(a b)$ がどうなるかというものである。
 
-// #figure(
-//  image("area.svg", width: 70%),
-//  caption: [面積則の説明],
-// )
-- M.~Creutz, "Quarks, Gluons and Lattices," Oxford University Press, 1983, doi:10.1017/9781009290395
+- M. Creutz, "Quarks, Gluons and Lattices," Oxford University Press, 1983, doi:10.1017/9781009290395
 
-- H.~J.~Rothe, "Lattice Gauge Theories : An Introduction (Fourth Edition)," World Scientific Publishing Company, 2012, doi:10.1142/8229
+- H. J. Rothe, "Lattice Gauge Theories : An Introduction (Fourth Edition)," World Scientific Publishing Company, 2012, doi:10.1142/8229
 
 - 青木慎也, "格子上の場の理論," 丸善出版.
 
@@ -204,15 +204,14 @@ $ Z = 1 / 2^V ∑_({ a }) (1 + O (K)) = 2^(E - V) + O (K) $
 
 ここまでで@wl の$0$でない最低次の項は$K^A$であることが分かったので、その項を計算していく。
 $ expval(W (C))
-&=1/Z 1/2^V ∑_({a}) (K^A)/(A!) ( ∑_p (-1)^(∑_(m in p) a_(m)))^A (-1)^(∑(ℓ in C) a_ℓ+O(K^(A+1))) \
-&=1/Z 1/2^V ∑_({a})K^A+O(K^(A+1)) \
-&=K^A+O (K^(A+1))
+&=1/Z 1/2^V ∑_({a}) (K^A)/(A!) ( ∑_p (-1)^(∑_(m in p) a_(m)))^A (-1)^(∑(ℓ in C) a_ℓ) + O(K^(A+1)) \
+&=1/Z 1/2^V ∑_({a})K^A + O(K^(A+1)) \
+&=K^A + O (K^(A+1))
 tilde exp(-(- log K) A). 
  $<result>
 ただし、一行目から二行目へは$(dots.h.c)^A$の展開で、面をきっちり埋め尽くすような項が$A !$項あり、それぞれがWilsonループからの寄与を合わせて$1$であることを用いた。また二行目から三行目へは分配関数の結果 @pf を用いた。
 
 @result は面積則を示していて、$T = - log K$である。
-
 ```
 
 ### 数式
@@ -229,7 +228,6 @@ $ ∫_(-∞)^(∞) dif x exp(- α x^2) = √(π/α) $
 出力結果：
 ![ユニコードを使った数式の出力結果](img/typstunicodemath.png)
 
-前々から、テキストエディタで直接表示できるような文字は、そのままで組版ソフトでも使えるべきだと思っていました。LaTeXの場合は今最も使われていると思われるもの（英語ならpdflatex、日本語ならplatexかuplatex）では直接ユニコードを書くことができません。ユニコードが使えるluatexなどを使えばユニコードで数式記号を直接書けるとは思うのですが、互換性がなくなってしまうので、なかなかやる気にならないです。例えばjulia言語ではソースにユニコードで数式記号を直接書いて非常に快適なので、typstでユニコードを直接書けるのは非常にありがたいです。
+前々から、テキストエディタで直接表示できるような文字は、そのままで組版ソフトでも使えるべきだと思っていました。LaTeXの場合は今最も使われていると思われるもの（英語ならpdflatex、日本語ならplatexかuplatex）では直接ユニコードを書くことができません。ユニコードが使えるluatexなどを使えばユニコードで数式記号を直接書けるとは思うのですが、互換性がなくなってしまうので、あまり気がすすまないです。例えばjulia言語ではソースにユニコードで数式記号を直接書いて非常に快適なので、typstでユニコードを直接書けるのは非常にありがたいです。
 
-一つの問題は入力方法ですが、これはエディタのサポートが必要です。ローカルの場合にはvscodeのunicode latexのようなパッケージを使うと便利です。Webアプリの場合は、今のところサポートは無いようです。日本語入力ソフトで入力できる記号も多いですし、よく使うものは辞書登録しておくと良いのかもしれません。 
-
+一つの問題は入力方法ですが、これはエディタのサポートが必要です。ローカルの場合にはvscodeのunicode latexのようなパッケージを使うと便利です。Webアプリの場合は、今のところサポートは無いようです。日本語入力ソフトで入力できる記号も多いですし、よく使うものは辞書登録しておくと良いのかもしれません。
