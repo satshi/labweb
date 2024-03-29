@@ -250,3 +250,13 @@ In the text mode, zb, SU(2N)/Z2 are displayed as this way.
 ![記号の定義を用いた出力結果](img/typstlet.png)
 
 LaTeXの`\newcommand`とちがって、変数（？）がそのまま置き換えられるわけではないようです。あと、変数名（？）に数字が使えるのが何気に快適です。
+
+### アポストロフィ
+
+Typstでの英語の引用符号などは、空気を読んでうまくやってくれます。
+```
+'That's right! This is what we call an "$α'$ correction."'
+```
+出力結果：![引用符号の出力結果](img/typstquote.png)
+
+ここで気になるのは、't Hooft をどう入力するかです。「正しい」文字の説明は [Apostrophe](https://webspace.science.uu.nl/~hooft101/ap.html)にかります。ところが何も考えないで`'t Hooft`と入力すると![‘t Hooft](img/typsttHooft1.png)と出力されてしまいます。なんとかしようとして、エスケープして`\'t Hooft`と入力すると!['t Hooft](img/typsttHooft2.png)と出力されます。これは間違いとは言えませんが、ちょっと微妙です。私が考えた解決方法は、全角？の’(U+2019)を用いて`’t Hooft`とすることです。そうすると![’t Hooft](img/typsttHooft3.png)と正しく出力されます。
