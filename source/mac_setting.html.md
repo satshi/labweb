@@ -11,6 +11,11 @@ pageid: mac_setting
 
 私は[Google 日本語入力](http://www.google.co.jp/ime/)を導入している。
 
+### Homebrew
+
+パッケージマネージャーと呼ばれるソフト。いろんなものをインストールしたりアンインストールしたりする。
+ [Homebrew — The missing package manager for OS X](http://brew.sh/)に行って、Homebrewを導入。
+
 ## TeX
 
 2023年現在[Overleaf](https://ja.overleaf.com/)を使うのが一番楽で安定しているようだ。ただ無料版だと履歴が1日分くらいしか残せないらしい。ローカルならgitで管理すれば、完全に履歴が残せる。それ以外にもオフラインでも使いたいとか、手元にないと何となく不安とかあるので、本格的にTeXを使うならローカルにインストールしておくほうがいい気もする。
@@ -18,8 +23,29 @@ pageid: mac_setting
 以下、ローカルで使いたい人向け。
 
 ### MacTeX
-- インストールする前に[MacTeX をおすすめできる場合とそうでない場合（私見） | ラング・ラグー](https://blog.wtsnjp.com/2020/07/07/about-mactex/)を読んでおくべきかも。私はMacTeXをインストーラーからインストールしたけれど、特に問題は起きていない。ただ気持ち悪いのは分かるので、今からやるならhomebrewでやると思う。
-- [MacTeX - TeX Wiki](https://texwiki.texjp.org/?MacTeX)を参考にしてインストールや設定をする。
+
+[MacTeX - TeX Wiki](https://texwiki.texjp.org/?MacTeX)を参考にしてインストールや設定をする。
+私は最近はhomebrewでインストールしている。以下、homebrewはインストールされているとして、ターミナルで以下のコマンドを打ち込んでいく。
+
+1. まず、MacTeXのインストール。時間がかかるし、途中でパスワードを求められることもある。
+
+    ```sh
+    brew install --cask mactex
+    ```
+
+    ここで一旦ターミナルを再起動する必要があるらしい。
+
+2. アップデート。これも時間がかかる場合がある。
+
+    ```sh
+    sudo tlmgr update --self --all
+    ```
+
+3. デフォルトの紙をA4にする。
+
+    ```sh
+    sudo tlmgr paper a4
+    ```
 
 ### latexmk
 
@@ -122,19 +148,20 @@ TeXで必要な回数texをかけてくれたり、必要ならbibtexなども�
 
 - App Storeからもらってくる。普段使いに便利なエディタ。
 
-## Homebrew
-
-パッケージマネージャーと呼ばれるソフト。いろんなものをインストールしたりアンインストールしたりする。
- [Homebrew — The missing package manager for OS X](http://brew.sh/)に行って、Homebrewを導入。
-
 ## お絵かき
 
 ### Inkscape
 
-ドロー系のお絵かきソフトで論文などに入れる図を書くのに使う。Macでもだいぶ使いやすくなった。
-[Draw Freely. | Inkscape](http://www.inkscape.org/ja/)に行って、バイナリーをもらってくる。
+[Inkscape](http://www.inkscape.org/ja/)は、ドロー系のお絵かきソフトで論文などに入れる図を書くのに使う。Macでもだいぶ使いやすくなった。Homebrewでinstallできる。
 
-数式を貼りたい。試した限りではLatexitからコピペは難しい。デフォルトで数式を扱うプラグインが入っているのでそれを使う。Inkscapeを起動するときにterminalからやらなければならないっぽい？ terminal で``open -a Inkscape``と入力してリターン。そしてInkscapeのメニューのエクステンション＞レンダリング＞公式(pdflatex)を選ぶとダイアログが出てきてtexの書式で数式が書ける。
+```sh
+brew install --cask inkscape
+```
+
+数式を貼りたい場合、以下のような方法が可能。
+
+- デフォルトで数式を扱うプラグインが入っているのでそれを使う。Inkscapeを起動するときにterminalからやらなければならないっぽい？ terminal で`open -a Inkscape`と入力してリターン。そしてInkscapeのメニューのエクステンション＞レンダリング＞公式(pdflatex)を選ぶとダイアログが出てきてtexの書式で数式が書ける。
+-  [TexText](https://textext.github.io/textext/)を使う。再編集が可能。しかし私が試した限り日本語キーボードから\を入力するのがめんどい。何も考えないと¥が出てくる。新しいものはTypstも使える。
 
 ### Gimp
 
@@ -143,5 +170,7 @@ TeXで必要な回数texをかけてくれたり、必要ならbibtexなども�
 ## 小物
 
 ### 文字コード変換
+
+2024年3月追記：ここ数年、utf-8以外の文字コードにはほとんど出会っていないので、もう文字コードを変換する必要は無いのかもしれない。必要になれば、エディタで読み込んで変換してセーブ、というので対応できそう。以下は古い情報。
 
 日本語のファイルの文字コードはすべてutf-8に統一しておくのが便利。 [MultiTextConverter](http://www.rk-k.com/software/mtc) を使っている。環境設定でsjisの機種依存文字のところをWindowsにする。でないと\を￥にされてしまう。あと、拡張子にtex, styを追加する。あとはフォルダーごとドラッグ・アンド・ドロップで変換してくれる。
