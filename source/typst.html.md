@@ -31,6 +31,7 @@ Typstに関する情報は、例えば次のところから得られます。
 - Typstの様々な情報へのリンク集 [Awesome Typst Links](https://github.com/qjcg/awesome-typst)
 
 ## 導入
+
 Typstを使いたい場合、一番お手軽なのはWebアプリ [Typst](https://typst.app/)を使うことです。フォントなどは、代表的なものが入っているので、通常の使い方で困ることは少ないと思います。
 
 ローカルで使いたい場合、例えばvscodeの中で使うなら"Typst LSP"と"Typst preview"いうパッケージを導入すれば、使えます。
@@ -254,9 +255,11 @@ LaTeXの`\newcommand`とちがって、変数（？）がそのまま置き換�
 ### アポストロフィ
 
 Typstでの英語の引用符号などは、空気を読んでうまくやってくれます。
-```
+
+```typst
 'That's right! This is what we call an "$α'$ correction."'
 ```
+
 出力結果：![引用符号の出力結果](img/typstquote.png)
 
 ここで気になるのは、't Hooft をどう入力するかです。「正しい」文字の説明は [Apostrophe](https://webspace.science.uu.nl/~hooft101/ap.html)にかります。ところが何も考えないで`'t Hooft`と入力すると![‘t Hooft](img/typsttHooft1.png)と出力されてしまいます。なんとかしようとして、エスケープして`\'t Hooft`と入力すると!['t Hooft](img/typsttHooft2.png)と出力されます。これは間違いとは言えませんが、ちょっと微妙です。私が考えた解決方法は、全角？の’(U+2019)を用いて`’t Hooft`とすることです。そうすると![’t Hooft](img/typsttHooft3.png)と正しく出力されます。

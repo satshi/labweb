@@ -130,7 +130,6 @@ TeXで必要な回数texをかけてくれたり、必要ならbibtexなども�
 - cmd+, で設定を開く。"latex recipe"とかで検索してLatex-workshop>Latex>Recipe:Defaultの項目を探す。ここを``latexmk (latexmkrc)``に書き換える。これで、cmd+option+bでlatexmk(latexmkrc)のレシピでビルドできる。
 - 好みで Latex-workshop>Latex>Auto Build: Runのところも変える。私はonSaveにしている。
 
-
 ### TeXShopで日本語
 
 （2023年2月追記：私はTeXShopを使ってないので以下の情報は古いです）
@@ -140,7 +139,6 @@ TeXで必要な回数texをかけてくれたり、必要ならbibtexなども�
 - 「書類」タブの一番下、設定プロファイルで「pTeX(ptex2pdf)」を選ぶ。
 - あまり細かいことを気にしない場合は「タイプセット」タブの「デフォルトのスクリプト」を「Tex + DVI」にする。
 - ほとんど英語しか使わないし、英語ではpdflatexを使いたいという方は、デフォルトで「Pdftex」にしておく。この場合、日本語を使う時はメニューのタイプセット/Tex + DVIを選択する。
-
 
 ## エディタ
 
@@ -161,7 +159,7 @@ brew install --cask inkscape
 数式を貼りたい場合、以下のような方法が可能。
 
 - デフォルトで数式を扱うプラグインが入っているのでそれを使う。Inkscapeを起動するときにterminalからやらなければならないっぽい？ terminal で`open -a Inkscape`と入力してリターン。そしてInkscapeのメニューのエクステンション＞レンダリング＞公式(pdflatex)を選ぶとダイアログが出てきてtexの書式で数式が書ける。
--  [TexText](https://textext.github.io/textext/)を使う。再編集が可能。しかし私が試した限り日本語キーボードから\を入力するのがめんどい。何も考えないと¥が出てくる。新しいものはTypstも使える。
+- [TexText](https://textext.github.io/textext/)を使う。再編集が可能。しかし私が試した限り日本語キーボードから\を入力するのがめんどい。何も考えないと¥が出てくる。新しいものはTypstも使える。
 
 ### Gimp
 
