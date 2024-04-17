@@ -133,6 +133,21 @@ In the text mode, zb, SU(2N)/Z2 are displayed as this way.
 
 LaTeXの`\newcommand`とちがって、変数（？）がそのまま置き換えられるわけではないようです。あと、変数名（？）に数字が使えるのが何気に快適です。
 
+### LaTeXで〇〇はTypstでどうやるの？
+
+基本的に"typst (調べたいLaTeXのコマンド)"でGoogleで検索すると見つかります。
+ [Guide for LaTeX users – Typst Documentation](https://typst.app/docs/guides/guide-for-latex-users/#elements)にいろいろ載っているのですが、それ以外で気がついたものを落ち穂ひろい的に書いてみます。
+
+| LaTeX |Typst | コメント|
+|----|----|----|
+| `% コメント` | `\\ コメント` | |
+| `\\` | `\ ` | 改行 |
+| `\tableofcontents` | `#outline()` | |
+| `\newpage` | `#pagebreak()` | |
+| `\footnote{脚注…}` | `#footnote[脚注…]` | デフォルトはちょっと変 |
+| `\hspace{1cm}`| `#h(1cm)` | |
+| `\vspace{1cm}`| `#v(1cm)` | |
+
 ### アポストロフィ
 
 Typstでの英語の引用符号などは、空気を読んでうまくやってくれます。
