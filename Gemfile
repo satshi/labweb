@@ -9,6 +9,12 @@ source 'https://rubygems.org'
 gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 #gem 'json', git: 'https://github.com/flori/json', branch: 'v1.8'
 
+# gems below should be bundled in Ruby3.4.0
+# gem 'bigdecimal'
+# gem 'mutex_m'
+# gem 'base64'
+# gem 'csv'
+
 # Middleman Gems
 gem 'middleman'
 gem 'middleman-livereload'
