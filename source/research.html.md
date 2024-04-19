@@ -29,6 +29,7 @@ pageid: research
 
 ### オリジナル研究の発表スライドなど
 
+- [一般化対称性について](pdf/generalized_symmetry.pdf) 下の講義ノートをタイプしたものです（未完成）。
 - [一般化対称性について](pdf/generalizedsymmetry.pdf) 駒場で行った集中講義の手書きノートです。
 - [Non-invertible symmetry on the lattice](pdf/non-invertible.pdf) 基礎物理学研究所とSeoul National Universityで行った講義の手書きノートです。
 - [場の理論におけるアノマリーと指数定理について](pdf/anomaly_index_note.pdf) 神戸大学で行った集中講義の手書きノートです。
