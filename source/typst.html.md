@@ -147,6 +147,7 @@ LaTeXの`\newcommand`とちがって、変数（？）がそのまま置き換�
 | `\footnote{脚注…}` | `#footnote[脚注…]` | デフォルトはちょっと変 |
 | `\hspace{1cm}`| `#h(1cm)` | |
 | `\vspace{1cm}`| `#v(1cm)` | |
+| `\, \: \; \quad \qquad` | `thin med thick quad wide` | 数式内のスペース。左上から 3/18 em, 4/18 em, 5/18 em, 1 em, 2 em |
 
 ### アポストロフィ
 
