@@ -45,9 +45,11 @@ brew install typst
 で済みます。詳しくは [GitHub - typst/typst](https://github.com/typst/typst)を見てください。
 
 ローカルで使う場合には、システムにインストールされているフォントを使うことができます。使いたいフォントがあれば、システムにインストールすることで使うことができます。あるいは、システムにはインストールせずに環境変数`TYPST_FONT_PATHS`を設定しても使えます。例えば、texliveでインストールしたopen type フォントを使いたい場合、私の環境の例だと
+
 ```bash
 export TYPST_FONT_PATHS="/usr/local/texlive/2024/texmf-dist/fonts/opentype"
 ```
+
 と`.zshrc`に書くと使えるようになりました。
 
 ## 使い方
@@ -145,7 +147,7 @@ LaTeXの`\newcommand`とちがって、変数（？）がそのまま置き換�
 | LaTeX |Typst | コメント|
 |----|----|----|
 | `% コメント` | `\\ コメント` | |
-| `\\` | `\ ` | 改行 |
+| `\\` | `\` | 改行 |
 | `\tableofcontents` | `#outline()` | |
 | `\newpage` | `#pagebreak()` | |
 | `\footnote{脚注…}` | `#footnote[脚注…]` | デフォルトはちょっと変 |
