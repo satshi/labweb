@@ -29,6 +29,7 @@ pageid: research
 
 ### オリジナル研究の発表スライドなど
 
+- [一般化対称性について](pdf/generalizedsymmetry2.pdf) 茨城大東工大合宿で行った講義のノートです。
 - [弦理論入門](pdf/stringintro.pdf) オリジナルの研究ではないですが、以前大学院生向けに行った弦理論の入門的講義のタイプしたノートをこちらにも置いておきます。付録にPoincare群の表現のWignerの分類についての説明も加えました。
 - [一般化対称性について](pdf/generalized_symmetry.pdf) 下の講義ノートをタイプしたものです（未完成）。
 - [一般化対称性について](pdf/generalizedsymmetry.pdf) 駒場で行った集中講義の手書きノートです。
