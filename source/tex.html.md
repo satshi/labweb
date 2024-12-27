@@ -108,9 +108,9 @@ $pdf_mode = 3;
 
 VSCodeのパッケージlatex-workshopをインストールします。やり方は、次のとおりです。
 
-- VSCode を立ち上げ、左端に並んでいるボタンのうち一番下のもの（拡張機能の管理）を押す。
-- そこでlatex-workshopを検索して「インストール」のところを押す。
-- そして「再読み込み」のところを押す。
+- VSCode を立ち上げ、左端に並んでいるボタンのうち一番下のもの（拡張機能の管理）を押します。
+- そこでlatex-workshopを検索して「インストール」のところを押します。
+- そして「再読み込み」のところを押します。
 
 ### テスト
 
@@ -142,7 +142,7 @@ VSCodeのパッケージlatex-workshopをインストールします。やり方
 コンパイルする際に、いちいちメニューからやっていると面倒くさいです。なのでショートカットから正しくコンパイルできるようにします。
 
 - ⌘+, で設定を開きます。
-- "latex recipe"とかで検索してLatex-workshop>Latex>Recipe:Defaultの項目を探す。ここを``latexmk (latexmkrc)``に書き換えます。
+- "latex recipe"とかで検索してLatex-workshop>Latex>Recipe:Defaultの項目を探します。ここを``latexmk (latexmkrc)``に書き換えます。
 
 これで、⌘+⌥+bでコンパイルできるようになります。
 
@@ -225,7 +225,7 @@ arXivに投稿する論文はpdflatexで正しくコンパイルされるよう�
 
 - ⌘+⌥+bでコンパイルしてください。
 - ⌘+⌥+vでpdfを表示させてください。うまくいっていればHello world!と書かれたpdfが表示されます。
-- エクスプローラーでpdflatextestの中に“test.dvi”というファイルが*作られていない*ことを確認してください。
+- エクスプローラーでpdflatextestの中に“test.dvi”というファイルが**作られていない**ことを確認してください。
 
 ## Git と Github
 
@@ -325,7 +325,7 @@ Github CopilotとはAIで補完等してくれるものです。LaTeXで論文�
 
 ### Inkscape
 
-[Inkscape](http://www.inkscape.org/ja/)は、ドロー系のお絵かきソフトで論文などに入れる図を書くのに使います。Macでもだいぶ使いやすくなった。Homebrewでinstallできます。
+[Inkscape](http://www.inkscape.org/ja/)は、ドロー系のお絵かきソフトで論文などに入れる図を書くのに使います。Macでもだいぶ使いやすくなりました。Homebrewでinstallできます。
 
   ```sh
   brew install --cask inkscape
@@ -335,3 +335,32 @@ Github CopilotとはAIで補完等してくれるものです。LaTeXで論文�
 
 - デフォルトで数式を扱うプラグインが入っているのでそれを使います。Inkscapeはターミナルから起動しないといけないようです。ターミナルで`inkscape &`と入力してリターンを押すとinkscapeが起動します。そしてInkscapeのメニューのエクステンション＞テキスト＞公式(pdflatex)を選ぶとダイアログが出てきてlatexの書式で数式が書けます。
 - [TexText](https://textext.github.io/textext/)を使う方法もあります。これは再編集が可能です。しかし私が試した限り日本語キーボードから\を入力するのが面倒です。何も考えないと¥が出てきます。新しいものはTypstも使えます。
+
+## その他のメモ
+
+### pdfファイルをバージョン管理すべきか
+
+LaTeXのプロジェクトで出来上がったpdfファイルは機械が作るものなので、原則に従えば.gitignoreに加えてバージョン管理から外すべきです。しかし、次のようなことはよくあります。
+
+- 手元にPCは無いけれど、ipadから自分の書いていたノートを見たい。しかし、Github上にはソースしかない。コンパイルするのは面倒くさい。
+- 共著論文を書くときに、共同研究者に直接書き直してほしいわけではないけれど、見るだけ見てほしい。共同研究者がコンパイルできるか分からない。
+
+こういう場合、github上で（コンパイルすることなく）pdfファイルが見れるというのは便利です。なのでpdfファイルもバージョン管理に加えておく方が良いのかもしれません。
+
+### Windowsの場合
+
+Windowsでやる場合、Windowsのコマンドラインでtexのプログラムやその他のコマンドラインプログラムを動かすと何故か非常に遅いです。なのでWindows Subsystem for Linux(WSL)を使うと良いと思います。Windows側でインストールしたVSCodeを使ってWSLのファイルを編集したりプログラムを動かしたりターミナルを使ったりできます。
+
+### Bibtex
+
+LaTeXで文献リストを入れる場合、bibtexを用います。自動的に並べ替えてくれます。以下素粒子理論分野（あるいはhep-th分野）特有の慣習を含めた情報です。
+
+Bibtexを用いるには、まず文献ファイル（bibファイル）を作る必要があります。〇〇.bibというテキストファイルを作り、文献の情報をフォーマットに従って書いていきます。これは[INSPIRE](https://inspirehep.net/)で検索して出てくる文献の場合には簡単で、出てきた文献のciteというところを押して出てくるダイアログボックスで右下のプルダウンメニューをBibtexにしてCopy to Clipboard押してコピペすれば良いです。INSPIREに無い文献の場合には、Google Scholarを調べるか、がんばって情報を手で書く必要があります。
+
+bibtexを使うには文献スタイルファイル（bstファイル）も必要です。標準で用意されているスタイルにはなかなか素粒子理論分野の習慣に合っているものがありません。私は[Jacques Distler氏](https://golem.ph.utexas.edu/~distler/)が作られた [utphys.bst](https://golem.ph.utexas.edu/~distler/code/utphys/)を使っています。これはhep-th分野で標準的に用いられる形式にしたがっていて、しかもarxivやdoiに自動的にリンクが貼られるという便利なものです。texファイルと同じディレクトリに`utphys.bst`を置いて、texファイルの中で`\bibliographystyle{utphys}`と書けば読み込ませることができます。
+
+### テンプレを作るスクリプト
+
+LaTeXを最初に書き始める場合、いつも同じような作業をする必要があります。私はこれをスクリプトを書いてやっています。このまま使ってもらえるようなものでもないですが、ご参考のために公開します。
+
+- [newtexproject](https://github.com/satshi/newtexproject.git)
