@@ -12,7 +12,7 @@ pageid: tex
 
 LaTeXの環境としては、2024年現在ではWebアプリである[Overleaf](https://ja.overleaf.com/)を使うのが一番楽で安定しているようです。なので、とりあえずLaTeXを使ってみようという人はOverleafを使うことをおすすめします。ただOverleafは、無料版だと履歴が1日分くらいしか残せないとか、コンパイルが遅い等々不満点もあるようです。また共同研究などでGithubを使って共同で論文を書く場合には無料版だとできない（未確認）ので共同研究者がOverleafを使ってくれない場合にはローカルにインストールする必要があると思います。
 
-ここでは、そういう必要にせまられてローカルでLaTeXの環境を構築する人のために、なるべく最短で使えるようになるようにインストールや設定のしかたなどを説明します。念頭においているのは、科学分野の学生や研究者で英語の論文をLaTeXで書くし、日本語の書類もLaTeXで書く場合もあり、共同執筆することもある人です。OSはMacで説明しています。
+ここでは、そういう必要にせまられてローカルでLaTeXの環境を構築する人のために、なるべく最短で使えるようになるようにインストールや設定のしかたなどを説明します。念頭においているのは、科学分野の学生や研究者で英語の論文をLaTeXで書くし、日本語の書類もLaTeXで書く場合もあり、共同執筆することもある人です。OSはMacで説明しています。あと、この手の情報はすぐに古くなるので注意してください。以下2024年12月の情報です。
 
 ## VSCode
 
@@ -137,6 +137,8 @@ VSCodeのパッケージlatex-workshopをインストールします。やり方
 
 ここまでで、とりあえず使えるようになりました。ここから先は便利に使ったり、arXivや論文雑誌に投稿したり、他の人との共著を視野に入れた設定をします。
 
+注意：Webで情報を調べると多くのサイトでsetting.jsonを書いて設定するやり方が出てきます。VSCodeを初めて使う人がこれをやるのはあまりおすすめできないです。よく分からないで、いろんなサイトのsetting.jsonをつぎはぎして、動かなくて泥沼になっている人を何人か見たことがあります。多くの必要な設定はGUIからできます。ある程度慣れてきて細かい設定をやりたくなって、GUIからできないようなことをやりたくなってからsetting.jsonを書き始めた方が良いと思います。
+
 ### ショートカット
 
 コンパイルする際に、いちいちメニューからやっていると面倒くさいです。なのでショートカットから正しくコンパイルできるようにします。
@@ -159,7 +161,7 @@ VSCodeのパッケージlatex-workshopをインストールします。やり方
 
 latexmkの設定ファイルは上で書いた~/.latexmkrcの他にtexファイルと同じフォルダにあるlatexmkrcのファイルに書くこともできます。ファイル名の先頭のピリオドのあるなしに注意してください。texファイルと同じフォルダにある方が優先されます。
 
-これを利用して、texの文書ごとに異なるコンパイルの仕方を設定することができます。むしろ、デフォルトに頼らず、文書ごとにlatexmkrcを書くべきです。これは誰かにtexのソースを渡したり、共同執筆したりするときに、必ず書いた人が意図した方法でコンパイルされるようにするためです。また、arXivに投稿する論文はpdflatexでコンパイルされますが、そのような論文はpdflatexでコンパイルして表示を確かめるべきです。
+これを利用して、texの文書ごとに異なるコンパイルの仕方を設定することができます。むしろ、デフォルトに頼らず、文書ごとにlatexmkrcを書くべきだと思います。これは誰かにtexのソースを渡したり、共同執筆したりするときに、必ず書いた人が意図した方法でコンパイルされるようにするためです。また、arXivに投稿する論文はpdflatexでコンパイルされますが、そのような論文はpdflatexでコンパイルして表示を確かめるべきです。
 
 以下にいくつか設定ファイルの例を示します（2024年12月ちょくちょく変えてます）。
 
@@ -172,7 +174,7 @@ latexmkの設定ファイルは上で書いた~/.latexmkrcの他にtexファイ�
     $lualatex = 'lualatex'.$texoption;
     $biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
     $bibtex = 'pbibtex %O %B';
-    $makeindex = 'mendex %O -o %D %S';
+    $makeindex = 'upmendex %O -o %D %S';
     $dvipdf = 'dvipdfmx %O -o %D %S';
     $pdf_mode = 3;
     ```
@@ -186,7 +188,7 @@ latexmkの設定ファイルは上で書いた~/.latexmkrcの他にtexファイ�
     $lualatex = 'lualatex'.$texoption;
     $biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
     $bibtex = 'pbibtex %O %B';
-    $makeindex = 'mendex %O -o %D %S';
+    $makeindex = 'upmendex %O -o %D %S';
     $dvipdf = 'dvipdfmx %O -o %D %S';
     $pdf_mode = 1;
     ```
@@ -200,12 +202,12 @@ latexmkの設定ファイルは上で書いた~/.latexmkrcの他にtexファイ�
     $lualatex = 'lualatex'.$texoption;
     $biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
     $bibtex = 'pbibtex %O %B';
-    $makeindex = 'mendex %O -o %D %S';
+    $makeindex = 'upmendex %O -o %D %S';
     $dvipdf = 'dvipdfmx %O -o %D %S';
     $pdf_mode = 4;
     ```
 
-上の３つの例では、$pdfmode だけが異なります。platexの設定は書いていませんが、uplatexでもよいならuplatexを使うべきです。不幸にしてスタイルファイルを強制されているなどの理由でplatexを使わなければならない場合にはuplatexの設定の中の"upなんとか"を"pなんとか"に書き換えればよいはずです。
+上の３つの例では、$pdfmode だけが異なります。platexの設定は書いていませんが、uplatexでもよいならuplatexを使うべきです。不幸にしてスタイルファイルを強制されているなどの理由でplatexを使わなければならない場合にはuplatexの設定の中の"uplatex"を"platex"に書き換えればよいはずです。
 
 ### pdflatexのテスト
 
@@ -349,7 +351,7 @@ LaTeXのプロジェクトで出来上がったpdfファイルは機械が作る
 
 ### Windowsの場合
 
-Windowsでやる場合、Windowsのコマンドラインでtexのプログラムやその他のコマンドラインプログラムを動かすと何故か非常に遅いです。なのでWindows Subsystem for Linux(WSL)を使うと良いと思います。Windows側でインストールしたVSCodeを使ってWSLのファイルを編集したりプログラムを動かしたりターミナルを使ったりできます。
+Windowsのコマンドラインでtexのプログラムやその他のコマンドラインプログラムを動かすと何故か非常に遅いです。なのでWindows Subsystem for Linux(WSL)を使うと良いと思います。Windows側でインストールしたVSCodeを使ってWSLのファイルを編集したりプログラムを動かしたりターミナルを使ったりできます。
 
 ### Bibtex
 

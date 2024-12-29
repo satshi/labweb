@@ -18,23 +18,17 @@ pageid: mac_setting
 
 ## TeX
 
-TeX関係は[LaTeXを使う](tex.html)に移動しました。
-
-### TeXShopで日本語
-
-（2023年2月追記：私はTeXShopを使ってないので以下の情報は古いです）
-
-- アプリケーションフォルダの中のTeXフォルダの中のTeXShopを立ち上げる。古い場合は、アップデートする。
-- メニューからTeXShop/環境設定を開く。
-- 「書類」タブの一番下、設定プロファイルで「pTeX(ptex2pdf)」を選ぶ。
-- あまり細かいことを気にしない場合は「タイプセット」タブの「デフォルトのスクリプト」を「Tex + DVI」にする。
-- ほとんど英語しか使わないし、英語ではpdflatexを使いたいという方は、デフォルトで「Pdftex」にしておく。この場合、日本語を使う時はメニューのタイプセット/Tex + DVIを選択する。
+TeX関係は[LaTeXの導入](tex.html)に移動した。
 
 ## エディタ
 
+### VSCode
+
+[Visual Studio Code - Code Editing. Redefined](https://code.visualstudio.com/)に行ってダウンロードしてインストールする。TeX関係は[LaTeXの導入](tex.html)にまとめた。
+
 ### CotEditor
 
-- App Storeからもらってくる。普段使いに便利なエディタ。
+App Storeからもらってくる。普段使いに便利なエディタ。
 
 ## 小物
 
