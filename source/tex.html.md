@@ -12,7 +12,9 @@ pageid: tex
 
 LaTeXの環境としては、2024年現在ではWebアプリである[Overleaf](https://ja.overleaf.com/)を使うのが一番楽で安定しているようです。なので、とりあえずLaTeXを使ってみようという人はOverleafを使うことをおすすめします。ただOverleafは、無料版だと履歴が1日分くらいしか残せないとか、コンパイルが遅い等々不満点もあるようです。また共同研究などでGithubを使って共同で論文を書く場合には無料版だとできない（未確認）ので共同研究者がOverleafを使ってくれない場合にはローカルにインストールする必要があると思います。
 
-ここでは、そういう必要にせまられてローカルでLaTeXの環境を構築する人のために、なるべく最短で使えるようになるようにインストールや設定のしかたなどを説明します。念頭においているのは、科学分野の学生や研究者で英語の論文をLaTeXで書くし、日本語の書類もLaTeXで書く場合もあり、共同執筆することもある人です。OSはMacで説明しています。あと、この手の情報はすぐに古くなるので注意してください。以下2024年12月の情報です。
+ここでは、そういう必要にせまられてローカルでLaTeXの環境を構築する人のために、なるべく最短で使えるようになるようにインストールや設定のしかたなどを説明します。念頭においているのは、科学分野の学生や研究者で英語の論文をLaTeXで書くし、日本語の書類もLaTeXで書く場合もあり、共同執筆することもある人です。OSはMacで説明しています。あと、この手の情報はすぐに古くなるので注意してください。以下2025年1月の情報です。
+
+※2025年1月：デフォルトの設定をlualatexを使うようにしました。
 
 ## VSCode
 
@@ -96,7 +98,7 @@ $biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
 $bibtex = 'pbibtex %O %B';
 $makeindex = 'mendex %O -o %D %S';
 $dvipdf = 'dvipdfmx %O -o %D %S';
-$pdf_mode = 3;
+$pdf_mode = 4;
 ```
 
 できたら⌘+sを押して保存します。保存場所とファイル名を選ぶので次のようにしてください。
@@ -161,7 +163,7 @@ VSCodeのパッケージlatex-workshopをインストールします。やり方
 
 latexmkの設定ファイルは上で書いた~/.latexmkrcの他にtexファイルと同じフォルダにあるlatexmkrcのファイルに書くこともできます。ファイル名の先頭のピリオドのあるなしに注意してください。texファイルと同じフォルダにある方が優先されます。
 
-これを利用して、texの文書ごとに異なるコンパイルの仕方を設定することができます。むしろ、デフォルトに頼らず、文書ごとにlatexmkrcを書くべきだと思います。これは誰かにtexのソースを渡したり、共同執筆したりするときに、必ず書いた人が意図した方法でコンパイルされるようにするためです。また、arXivに投稿する論文はpdflatexでコンパイルされますが、そのような論文はpdflatexでコンパイルして表示を確かめるべきです。
+これを利用して、texの文書ごとに異なるコンパイルの仕方を設定することができます。むしろ、デフォルトに頼らず、文書ごとにlatexmkrcを書くべきだと思います。これは誰かにtexのソースを渡したり、共同執筆したりするときに、必ず書いた人が意図した方法でコンパイルされるようにするためです。また、arXivに投稿する論文はpdflatexでコンパイルされますが、そのような論文はpdflatexでコンパイルして表示を確かめるべきです。また、日本語の文章を書く場合には、上で紹介したlualatexを使うよりもuplatexを使うほうがかなり速いです。慣れてきたら日本語を書く場合にはuplatexを使うほうが良いかもしれません。
 
 以下にいくつか設定ファイルの例を示します（2024年12月ちょくちょく変えてます）。
 
@@ -209,6 +211,16 @@ latexmkの設定ファイルは上で書いた~/.latexmkrcの他にtexファイ�
 
 上の３つの例では、$pdfmode だけが異なります。platexの設定は書いていませんが、uplatexでもよいならuplatexを使うべきです。不幸にしてスタイルファイルを強制されているなどの理由でplatexを使わなければならない場合にはuplatexの設定の中の"uplatex"を"platex"に書き換えればよいはずです。
 
+### uplatexのテスト
+
+日本語の文章をコンパイルする場合、上で述べたlualatexを用いるよりもuplatex+dvipdfmxを用いたほうがかなり速いです。ここでは、それをテストしてみましょう。
+
+- 先ほどテストで作った“latextest”を開いてください。
+- VSCodeのエクスプローラーからlatextestの中に“latexmkrc”という名前（.は無いことに注意）のテキストファイルを作成して、上の「日本語でuplatexを使用する場合」の設定をコピペして保存してください。
+- “test.tex”のファイルを開いて⌘+⌥+cで中間ファイルを消した後、⌘+⌥+bでコンパイルしてください。
+- ⌘+⌥+vでpdfを表示させてください。うまくいっていれば「こんにちは世界！」と書かれたpdfが表示されます。
+- エクスプローラーでlatextestの中に“test.dvi”というファイルがあることを確認してください。これがあれば正しくuplatexでコンパイルされているはずです。無い場合にはuplatexが使えていませんので、カレントディレクトリの`latexmkrc`ファイルの$pdf_modeがのところが`$pdf_mode = 3`になっているか、あるいはVSCodeの設定のLatex-workshop>Latex>Recipe:Defaultのところが`latexmk (latexmkrc)`となっているかを確認してみてください。
+
 ### pdflatexのテスト
 
 arXivに投稿する論文はpdflatexで正しくコンパイルされるようにtexファイルを準備すべきです。これまで設定してきた環境でpdflatexで正しくコンパイルできるかどうかテストしてみましょう。
@@ -227,7 +239,7 @@ arXivに投稿する論文はpdflatexで正しくコンパイルされるよう�
 
 - ⌘+⌥+bでコンパイルしてください。
 - ⌘+⌥+vでpdfを表示させてください。うまくいっていればHello world!と書かれたpdfが表示されます。
-- エクスプローラーでpdflatextestの中に“test.dvi”というファイルが**作られていない**ことを確認してください。
+- エクスプローラーでpdflatextestの中に“test.log”というファイルがあるはずです。これを開いてみて最初の方が❝This is pdfTeX, ...”となっていることを確認してください。これが❝This is LuaHBTeX, ...”となっていたらうまくpdflatexが使えていませんので、カレントディレクトリの`latexmkrc`ファイルの$pdf_modeがのところが`$pdf_mode = 1`になっているか、あるいはVSCodeの設定のLatex-workshop>Latex>Recipe:Defaultのところが`latexmk (latexmkrc)`となっているかを確認してみてください。
 
 ## Git と Github
 
@@ -352,6 +364,17 @@ LaTeXのプロジェクトで出来上がったpdfファイルは機械が作る
 ### Windowsの場合
 
 Windowsのコマンドラインでtexのプログラムやその他のコマンドラインプログラムを動かすと何故か非常に遅いです。なのでWindows Subsystem for Linux(WSL)を使うと良いと思います。Windows側でインストールしたVSCodeを使ってWSLのファイルを編集したりプログラムを動かしたりターミナルを使ったりできます。
+
+WindowsでWSLとVScodeを使う情報は [Windows Subsystem for Linux に関するドキュメント | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/)から得られます。具体的には
+
+- [WSL のインストール | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install)
+- [WSL で VS Code の使用を開始する | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-vscode)
+
+を見るとWSLでVSCodeを使い始めることができるようになると思います。
+
+WSLでのTexlinveのインストールはいくつか方法があります。例えば [Quick install - TeX Live - TeX Users Group](https://www.tug.org/texlive/quickinstall.html)に書いてある一般的なUnixにインストールする方法でできると思います。 あるいは[Homebrew — The Missing Package Manager for macOS (or Linux)](https://brew.sh/)からインストールすることもできると思います（未確認）。
+
+後は、上で述べた「必要な設定」以下はMacの場合と同様です。一つよく考えたほうが良いのはディレクトリ構成です。まず、ホームディレクトリがどこかをちゃんと確認しておきます。ターミナルで`cd`とだけ入力してリターンを押して行けるところがホームディレクトリです。`.latexmkrc`などの設定ファイルはこのホームディレクトリに置きます。いろんな文書などをこのホームディレクトリに直接置いてしまうと散らかって大変なことになります。なので例えばホームディレクトリの下に`documents`というフォルダーを作って、その下にプロジェクトごとにフォルダーを作って文書ファイルはその中に置くというような構成にすると良いかもしれません。
 
 ### Bibtex
 
