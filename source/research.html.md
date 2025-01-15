@@ -11,7 +11,7 @@ pageid: research
 
 ## 発表論文リスト
 
-- [発表論文リスト(inspire)](http://inspirehep.net/search?ln=ja&p=FIND+EA+YAMAGUCHI%2C+SATOSHI+OR+EPRINT+HEP-TH%2F9902079&f=&action_search=)
+- [発表論文リスト(inspire)](https://inspirehep.net/search?ln=ja&p=FIND+EA+YAMAGUCHI%2C+SATOSHI+OR+EPRINT+HEP-TH%2F9902079&f=&action_search=)
 - [発表論文リスト(arXiv)](https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=Yamaguchi%2C+Satoshi&terms-0-field=author&classification-physics_archives=all&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=50&order=-announced_date_first)
 
 ## ノートやスライドのファイル
@@ -23,7 +23,7 @@ pageid: research
 
 ### 解説記事など
 
-- [AdS/CFT対応と泡状時空(最近の研究から)](http://ci.nii.ac.jp/naid/110004837341) 以前に物理学会誌に書いた記事です。
+- [AdS/CFT対応と泡状時空(最近の研究から)](https://ci.nii.ac.jp/naid/110004837341) 以前に物理学会誌に書いた記事です。
  <s>今はオープンになっています。</s>
  見れなくなっているようです。
 

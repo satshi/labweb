@@ -55,7 +55,7 @@ TeXの「本体」とライブラリ等すべてまとめたものはTeX Liveと
 
 Homebrewをインストールします。すでにHomebrewがインストールされている方は、ここは飛ばしてください。インストールされているかどうかは、ターミナルで``brew``と入力してみると分かります。使い方が表示されればインストールされています。「コマンドがない」という趣旨のエラーが出たらインストールされていません。
 
-インストールの仕方は[Homebrew — The missing package manager for OS X](http://brew.sh/)に行って、その指示に従ってください。基本的にコマンドをターミナルにコピペして入力することでインストールされます。
+インストールの仕方は[Homebrew — The missing package manager for OS X](https://brew.sh/)に行って、その指示に従ってください。基本的にコマンドをターミナルにコピペして入力することでインストールされます。
 
 ### MacTeX
 
@@ -339,7 +339,7 @@ Github CopilotとはAIで補完等してくれるものです。LaTeXで論文�
 
 ### Inkscape
 
-[Inkscape](http://www.inkscape.org/ja/)は、ドロー系のお絵かきソフトで論文などに入れる図を書くのに使います。Macでもだいぶ使いやすくなりました。Homebrewでinstallできます。
+[Inkscape](https://inkscape.org/ja/)は、ドロー系のお絵かきソフトで論文などに入れる図を書くのに使います。Macでもだいぶ使いやすくなりました。Homebrewでinstallできます。
 
   ```sh
   brew install --cask inkscape
