@@ -287,7 +287,7 @@ GitそのものはMacなら最初から入っています。確認するため�
 - 右のアイコンのうち一番上の書類のアイコンをおしてエクスプローラーを出します。`pdflatextest`の下に新しいファイルを作って`.gitignore`という名前にします。
 - `.gitignore`の中に次をコピペして保存します。これは無視するファイルを並べたものです。`*`はワイルドカードと呼ばれていて任意の文字列が入ります。
 
-  ```gitignore
+  ```sh
   *.aux
   *.dvi
   *.log
@@ -372,7 +372,7 @@ WindowsでWSLとVScodeを使う情報は [Windows Subsystem for Linux に関す�
 
 を見るとWSLでVSCodeを使い始めることができるようになると思います。
 
-WSLでのTexlinveのインストールはいくつか方法があります。例えば [Quick install - TeX Live - TeX Users Group](https://www.tug.org/texlive/quickinstall.html)に書いてある一般的なUnixにインストールする方法でできると思います。 あるいは[Homebrew — The Missing Package Manager for macOS (or Linux)](https://brew.sh/)からインストールすることもできると思います（未確認）。
+WSLでのTexliveのインストールはいくつか方法があります。例えば [Quick install - TeX Live - TeX Users Group](https://www.tug.org/texlive/quickinstall.html)に書いてある一般的なUnixにインストールする方法でできると思います。 あるいは[Homebrew — The Missing Package Manager for macOS (or Linux)](https://brew.sh/)からインストールすることもできると思います（未確認）。
 
 後は、上で述べた「必要な設定」以下はMacの場合と同様です。一つよく考えたほうが良いのはディレクトリ構成です。まず、ホームディレクトリがどこかをちゃんと確認しておきます。ターミナルで`cd`とだけ入力してリターンを押して行けるところがホームディレクトリです。`.latexmkrc`などの設定ファイルはこのホームディレクトリに置きます。いろんな文書などをこのホームディレクトリに直接置いてしまうと散らかって大変なことになります。なので例えばホームディレクトリの下に`documents`というフォルダーを作って、その下にプロジェクトごとにフォルダーを作って文書ファイルはその中に置くというような構成にすると良いかもしれません。
 
