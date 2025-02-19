@@ -50,7 +50,7 @@ pageid: research
 - [２次元Ising模型のKramers–Wannier双対性](pdf/ising.pdf) 最近の一般化対称性の文脈でよく現れる２次元Ising模型とKramers–Wannier双対性についてのノートです。
 - [ゼータ関数の解析接続](pdf/zeta.pdf) 弦理論やη不変量などで使われる、ゼータ関数の解析接続のちょっとしたまとめです。
 - [Dirac演算子の指数定理](pdf/jDirac-index.pdf) 一般の偶数次元でのDirac演算子の指数定理の導出の説明です。
-- [様々な次元のスピノール](pdf/spinor.pdf) 様々な次元のスピノールについてのノートです。（2020年３月５日Pin&oline;の表現を追加）
+- [様々な次元のスピノール](pdf/spinor.pdf) 様々な次元のスピノールについてのノートです。（2020年３月５日Pin&oline;の表現を追加。2025年２月微修正）
 
 ## 科研費
 
