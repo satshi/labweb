@@ -16,6 +16,8 @@ LaTeXの環境としては、2024年現在ではWebアプリである[Overleaf](
 
 ※2025年1月：デフォルトの設定をlualatexを使うようにしました。
 
+※2025年3月：latexmkの設定を後回しにしました。
+
 ## VSCode
 
 ### インストールと基本的な設定
@@ -83,29 +85,6 @@ Homebrewが準備できたらMacTeXのインストールを行います。次の
 
 ## 必要な設定
 
-### latexmk
-
-TeXで必要な回数texをかけてくれたり、必要ならbibtexなども自動的にやってくれるツールです。基本的に下で説明するlatex-workshopの中から使います。
-
-latexmkを使うためには、設定ファイルを書く必要があります。一番良く使うであろうものを ~/.latexmkrc に書きます。VSCodeのメニューのファイル＞新しいテキストファイルを選びます。そして次の設定をコピペします。
-
-``` perl
-$texoption = ' %O -interaction=nonstopmode -file-line-error -synctex=1 %S';
-$latex = 'uplatex'.$texoption;
-$pdflatex = 'pdflatex'.$texoption;
-$lualatex = 'lualatex'.$texoption;
-$biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
-$bibtex = 'pbibtex %O %B';
-$makeindex = 'upmendex %O -o %D %S';
-$dvipdf = 'dvipdfmx %O -o %D %S';
-$pdf_mode = 4;
-```
-
-できたら⌘+sを押して保存します。保存場所とファイル名を選ぶので次のようにしてください。
-
-- ファイル名: ".latexmkrc" （最初に.（ピリオド）があることに注意）
-- 場所：ホームディレクトリ（ユーザー名がついているフォルダで家のアイコンがついているもの）
-
 ### latex-workshopのインストール
 
 VSCodeのパッケージlatex-workshopをインストールします。やり方は、次のとおりです。
@@ -132,7 +111,7 @@ VSCodeのパッケージlatex-workshopをインストールします。やり方
 
 - VSCodeの右の縦に並んでいるアイコンの中にTEXというのがあると思うので、これを押してください。すると、LATEXというののいろんなメニューが出てきます。
 - このメニューのコマンドの中から、「LaTeXプロジェクトをビルド」と書いてあるところの一番左の>を押してください。するとサブメニューが開くと思います。
-- その中から「レシピ: latexmk (latexmkrc)」を選んでください。コンパイルされます。
+- その中から「レシピ: latexmk (lualatex)」を選んでください。コンパイルされます。
 - 「LaTeX PDFを表示」の中のサブメニューの「VSCodeタブで表示」を選んでください。右に新しいタブが開いて、出来上がった「こんにちは世界！」と書かれたpdfが表示されれば成功です。
 
 ## さらに設定
@@ -141,10 +120,34 @@ VSCodeのパッケージlatex-workshopをインストールします。やり方
 
 注意：Webで情報を調べると多くのサイトでsetting.jsonを書いて設定するやり方が出てきます。VSCodeを初めて使う人がこれをやるのはあまりおすすめできないです。よく分からないで、いろんなサイトのsetting.jsonをつぎはぎして、動かなくて泥沼になっている人を何人か見たことがあります。多くの必要な設定はGUIからできます。ある程度慣れてきて細かい設定をやりたくなって、GUIからできないようなことをやりたくなってからsetting.jsonを書き始めた方が良いと思います。
 
+### latexmk
+
+TeXで必要な回数texをかけてくれたり、必要ならbibtexなども自動的にやってくれるツールです。基本的に下で説明するlatex-workshopの中から使います。
+
+latexmkを使うためには、設定ファイルを書く必要があります。一番良く使うであろうものを ~/.latexmkrc に書きます。VSCodeのメニューのファイル＞新しいテキストファイルを選びます。そして次の設定をコピペします。
+
+``` perl
+$texoption = ' %O -interaction=nonstopmode -file-line-error -synctex=1 %S';
+$latex = 'uplatex'.$texoption;
+$pdflatex = 'pdflatex'.$texoption;
+$lualatex = 'lualatex'.$texoption;
+$biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
+$bibtex = 'pbibtex %O %B';
+$makeindex = 'upmendex %O -o %D %S';
+$dvipdf = 'dvipdfmx %O -o %D %S';
+$pdf_mode = 4;
+```
+
+できたら⌘+sを押して保存します。保存場所とファイル名を選ぶので次のようにしてください。
+
+- ファイル名: ".latexmkrc" （最初に.（ピリオド）があることに注意）
+- 場所：ホームディレクトリ（ユーザー名がついているフォルダで家のアイコンがついているもの）
+
 ### ショートカット
 
 コンパイルする際に、いちいちメニューからやっていると面倒くさいです。なのでショートカットから正しくコンパイルできるようにします。
 
+- 上のlatexmkの設定をやります。
 - ⌘+, で設定を開きます。
 - "latex recipe"とかで検索してLatex-workshop>Latex>Recipe:Defaultの項目を探します。ここを``latexmk (latexmkrc)``に書き換えます。
 
