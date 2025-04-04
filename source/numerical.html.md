@@ -101,3 +101,21 @@ plot!(x -> sqrt(4-x^2)/(2π), -2, 2, linewidth=2)
 <script type="text/javascript" async
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 </script>
+
+## 2025年4月追記
+
+Google Colab でjuliaが使えるようになっている。GPUも使える。試しに[[2503.23921] K-theoretic computation of the Atiyah(-Patodi)-Singer index of lattice Dirac operators](https://arxiv.org/abs/2503.23921)の計算のコードを動かしてみたら動いた。しかもGPUが使えるので、かなり速い。
+
+### コードへのリンク
+
+- [整数に値をとる指数](https://colab.research.google.com/drive/1v-e-ng0D_87OyBc5Vk5xwmJJvWeaoxsJ?usp=sharing)
+- [Mod 2 指数](https://colab.research.google.com/drive/18WipBgDPhFNYdmWB-kSbiTgIUtQ5BcP2?usp=sharing)
+
+### 動かし方
+
+Googleのアカウントがあれば、誰でも実行してみることができるはず。以下のようにする。
+
+- Googleにログインしておく。
+- 上のリンクのどちらかに飛ぶ。
+- メニューの ファイル＞ドライブにコピーを保存 を選ぶ。
+- コピーの方で上から実行（各セルの左にある▷を押す）していく。Main Codeのところは実行するとエラーが出るかもしれないが、その場合はもう一度実行する。
