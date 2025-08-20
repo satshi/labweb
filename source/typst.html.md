@@ -28,29 +28,26 @@ Typstに関する情報は、例えば次のところから得られます。
 
 - 公式ページ [Typst: Compose papers faster](https://typst.app/)
 - ドキュメント [Typst Documentation](https://typst.app/docs/)
+- ドキュメントの日本語訳 [Typstについて – Typstドキュメント日本語版](https://typst-jp.github.io/docs/)
 - Typstの様々な情報へのリンク集 [Awesome Typst Links](https://github.com/qjcg/awesome-typst)
 
 ## 導入
 
 Typstを使いたい場合、一番お手軽なのはWebアプリ [Typst](https://typst.app/)を使うことです。フォントなどは、代表的なものが入っているので、通常の使い方で困ることは少ないと思います。
 
-ローカルで使いたい場合、例えばvscodeの中で使うなら"Tinymist Typst"いうパッケージを導入すれば、使えます。
+ローカルで使いたい場合、例えばvscodeをインストールし"Tinymist Typst"いうパッケージを導入するだけで使えます。typstのコマンドラインツールを別にインストールする必要はありません。
 
-コマンドラインで使いたい場合には、例えばMacでhomebrewを入れている場合には
+コマンドラインで使いたい場合には、例えばMacではhomebrewを用いてインストールできます。
 
-```bash
-brew install typst
-```
-
-で済みます。詳しくは [GitHub - typst/typst](https://github.com/typst/typst)を見てください。
+詳しくは [GitHub - typst/typst](https://github.com/typst/typst)を見てください。
 
 ローカルで使う場合には、システムにインストールされているフォントを使うことができます。使いたいフォントがあれば、システムにインストールすることで使うことができます。あるいは、システムにはインストールせずに環境変数`TYPST_FONT_PATHS`を設定しても使えます。例えば、texliveでインストールしたopen type フォントを使いたい場合、私の環境の例だと
 
 ```bash
-export TYPST_FONT_PATHS="/usr/local/texlive/2024/texmf-dist/fonts/opentype"
+export TYPST_FONT_PATHS="/usr/local/texlive/2025/texmf-dist/fonts/opentype"
 ```
 
-と`.zshrc`に書くと使えるようになりました。
+と`.zshrc`に書くと使えるようになりました。vscodeでTinymistを使っている場合には設定の`Tinymist: Font Paths`からも設定できると思いますが、試してみたことはありません。
 
 ## 使い方
 
