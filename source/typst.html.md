@@ -44,7 +44,7 @@ Typstを使いたい場合、一番お手軽なのはWebアプリ [Typst](https:
 ローカルで使う場合には、システムにインストールされているフォントを使うことができます。使いたいフォントがあれば、システムにインストールすることで使うことができます。あるいは、システムにはインストールせずに環境変数`TYPST_FONT_PATHS`を設定しても使えます。例えば、texliveでインストールしたopen type フォントを使いたい場合、私の環境の例だと
 
 ```bash
-export TYPST_FONT_PATHS="/usr/local/texlive/2025/texmf-dist/fonts/opentype"
+export TYPST_FONT_PATHS="/usr/local/texlive/2026/texmf-dist/fonts/opentype"
 ```
 
 と`.zshrc`に書くと使えるようになりました。vscodeでTinymistを使っている場合には設定の`Tinymist: Font Paths`からも設定できると思いますが、試してみたことはありません。
@@ -65,39 +65,16 @@ Hello world!😀
 英語だけなら、後は [チュートリアル](https://typst.app/docs/tutorial/)と（LaTeXに慣れている方なら）
  [Guide for LaTeX users – Typst Documentation](https://typst.app/docs/guides/guide-for-latex-users/)を読めば、すぐに実用的に使い始めることができると思います。
 
-日本語の場合は、少し考える必要があります。何も考えずにやると、次のようになります。
+日本語の場合は、何も考えずにやるとフォントが変になります。
 
 ```typst
-最近は、弦理論や場の理論における一般化対称性に興味を持っています。
+こんにちは世界！
 ```
 
-出力結果：![日本語のこんにちは世界の出力結果デフォルト](img/typstjphello0.png)
+出力結果：![日本語HelloWorldの出力結果](img/typstjphello.png)
 
-だいたい問題なさそうな気がしますが、フォントに微妙に違和感があります。
-
-日本語を正しく出すには、少しおまじないが必要です。
-
-```typst
-#set text(lang:"ja")
-最近は、弦理論や場の理論における一般化対称性に興味を持っています。
-```
-
-出力結果：![日本語のこんにちは世界の出力結果改善](img/typstjphello1.png)
-
-こうして見てみると、おまじない無しの方は、「論」、「化」、「称」などの文字が通常日本で使われる書体と微妙に異なっていることが分かります。
-
-日本語の通常の文章では、ゴシック体ではなくて、明朝体を使いたいことが多いと思います。フォントを指定するには、次のようにします。
-
-```typst
-#set text(lang:"ja", font: "Harano Aji Mincho")
-最近は、弦理論や場の理論における一般化対称性に興味を持っています。
-```
-
-出力結果：![日本語のこんにちは世界の出力結果明朝体](img/typstjphello2.png)
-
-ここで用いたフォント"Harano Aji Mincho"は、日本語の明朝体のフリーのフォントで、typstのWebアプリにもインストールされています。Webアプリで元からインストールされているフォント一覧は「Ag」と書いてあるボタンを押すと分かります。ローカルでは、コマンドラインから `typst fonts` と入力すると、使えるフォント一覧が分かります。
-
-簡単な日本語のテンプレートを作ってみました。 [Typst の日本語テンプレートの例](https://github.com/satshi/typst-jp-template)
+これを解決するための簡単な方法は[Typst Universe](https://typst.app/universe/)に公開されている日本語文書のテンプレートを用いることです。例えば [js](https://typst.app/universe/package/js)、 [jastylest](https://typst.app/universe/package/jastylest)、 [jaconf](https://typst.app/universe/package/jaconf)などが使えます。使い方は、webアプリならstart from templateを押して、テンプレートを選んでください。Search templatesのところに"Japanese"と入れたり、テンプレートの名前("js"など)を入れて出てきたものから選ぶのが楽です。VSCode + Tinymistの場合には、メニュー（macなら⌘+⇧+P）から`typst template`と入力してみてTypst: Show Available Typst Templates …を選んでください。そこから検索するなどして、お目当てのテンプレートから初めてください。 [Typstテンプレートを使用する](https://zenn.dev/kimushun1101/articles/typst-template)に詳しい説明があります。
+私自身も簡単な日本語のテンプレートを作ってみましたが、あまり完成度は高くないです。ご参考のために載せておきます。 [Typst の日本語テンプレートの例](https://github.com/satshi/typst-jp-template)
 
 ### 数式
 
