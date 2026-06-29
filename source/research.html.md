@@ -27,11 +27,21 @@ pageid: research
  <s>今はオープンになっています。</s>
  見れなくなっているようです。
 
-### オリジナル研究の発表スライドなど
+### 講義ノートやメモのノート（タイプしたもの）
 
-- [一般化対称性について](pdf/generalized_symmetry.pdf) 駒場で行った講義ノートをタイプしたものです。ひととおりタイプし終わりました。
-- [一般化対称性について](pdf/generalizedsymmetry2.pdf) 茨城大東工大合宿で行った講義のノートです。
-- [弦理論入門](pdf/stringintro.pdf) オリジナルの研究ではないですが、以前大学院生向けに行った弦理論の入門的講義のタイプしたノートをこちらにも置いておきます。付録にPoincare群の表現のWignerの分類についての説明も加えました。
+- [弦理論入門](pdf/stringintro.pdf) 以前大学院生向けに行った弦理論の入門的講義のタイプしたノートです。付録にPoincare群の表現のWignerの分類についての説明も加えました。
+- [一般化対称性について](pdf/generalized_symmetry.pdf) いろんなところで行った講義ノートをタイプしたものです。
+- [２次元Ising模型のKramers–Wannier双対性](pdf/ising.pdf) 最近の一般化対称性の文脈でよく現れる２次元Ising模型とKramers–Wannier双対性についてのノートです。
+- [ゼータ関数の解析接続](pdf/zeta.pdf) 弦理論やη不変量などで使われる、ゼータ関数の解析接続のちょっとしたまとめです。
+- [Dirac演算子の指数定理](pdf/jDirac-index.pdf) 一般の偶数次元でのDirac演算子の指数定理の導出の説明です。
+- [様々な次元のスピノール](pdf/spinor.pdf) 様々な次元のスピノールについてのノートです。（2020年３月５日Pin&oline;の表現を追加。2025年２月微修正）
+
+### オリジナル研究の発表スライドや手書きの発表ノートなど
+
+- [On the index of Dirac operator on the lattice](pdf/latticeindexpresentation.pdf)
+- [Arf–Brown–Kervaire Invariant on the Lattice](pdf/ABKpresentation.pdf)
+- [Boundary scattering and non-invertible symmetries in 1+1 dimensions](pdf/boundaryscatteringpresentation.pdf)
+- [一般化対称性について](pdf/generalizedsymmetry2.pdf) 茨城大東工大合宿で行った講義の手書きノートです。
 - [一般化対称性について](pdf/generalizedsymmetry.pdf) 駒場で行った集中講義の手書きノートです。
 - [Non-invertible symmetry on the lattice](pdf/non-invertible.pdf) 基礎物理学研究所とSeoul National Universityで行った講義の手書きノートです。
 - [場の理論におけるアノマリーと指数定理について](pdf/anomaly_index_note.pdf) 神戸大学で行った集中講義の手書きノートです。
@@ -44,13 +54,6 @@ pageid: research
 - [混合大域アノマリーと境界状態](pdf/global-anomaly.pdf)
 - [共形場理論の手法による、余次元２のtwist defectの理論のε展開](pdf/defectCFT.pdf)
 - [AdS7/CFT6におけるWilson サーフェスとM5-brane (pdfファイル)](pdf/wilson_surface.pdf)
-
-### ちょっとしたノート
-
-- [２次元Ising模型のKramers–Wannier双対性](pdf/ising.pdf) 最近の一般化対称性の文脈でよく現れる２次元Ising模型とKramers–Wannier双対性についてのノートです。
-- [ゼータ関数の解析接続](pdf/zeta.pdf) 弦理論やη不変量などで使われる、ゼータ関数の解析接続のちょっとしたまとめです。
-- [Dirac演算子の指数定理](pdf/jDirac-index.pdf) 一般の偶数次元でのDirac演算子の指数定理の導出の説明です。
-- [様々な次元のスピノール](pdf/spinor.pdf) 様々な次元のスピノールについてのノートです。（2020年３月５日Pin&oline;の表現を追加。2025年２月微修正）
 
 ## 科研費
 
